@@ -1,0 +1,477 @@
+<title>GTS302 Final Templates</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans+Thai:wght@400;500;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one reading column. Each document type = structure strip → fill-in frames (hideable for recall) → annotated model answer on a ruled "writing sheet" → own-draft box. */
+:root{
+  --bg:#f2f4f1; --paper:#ffffff; --sheet:#fcfdfb; --ink:#1c2a3f; --muted:#5a6577; --line:#d6dcd4; --rule:#e3e8e1;
+  --accent:#3f7a4a; --accent-soft:#e3efe2; --navy:#1f3a5f; --navy-soft:#e5ebf3;
+  --blank:#b9581f; --mark:#f3dc6b; --mark-ink:#3a3000; --bad:#b4322a; --bad-soft:#fbe7e4; --good:#2c7a47; --good-soft:#e2f3e7;
+  --k1:#1f5fbf;--k1s:#e8effb;--k2:#0d7c76;--k2s:#e1f4f2;--k3:#6a45c0;--k3s:#efeafb;--k4:#3f7a4a;--k4s:#e3f1e5;--k5:#b35c00;--k5s:#fcefe0;--k6:#55606f;--k6s:#ecf0f3;
+  --f-body:"IBM Plex Sans Thai","Leelawadee UI",Tahoma,system-ui,sans-serif;
+  --f-doc:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121815; --paper:#1a221e; --sheet:#1d2622; --ink:#e4ebe6; --muted:#9ca9a1; --line:#2e3a34; --rule:#26312b;
+  --accent:#7cc48a; --accent-soft:#1f3326; --navy:#9dbbe6; --navy-soft:#1d2a3d;
+  --blank:#f0a36d; --mark:#cbb341; --mark-ink:#1c1700; --bad:#f08a80; --bad-soft:#3d1d1b; --good:#6fd59a; --good-soft:#183626;
+  --k1:#8fb2ff;--k1s:#1d2a47;--k2:#4fd1c5;--k2s:#16322f;--k3:#b69cff;--k3s:#2a2147;--k4:#7cc48a;--k4s:#1b3322;--k5:#f5ad5b;--k5s:#3a2812;--k6:#aab4c4;--k6s:#262d38;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121815; --paper:#1a221e; --sheet:#1d2622; --ink:#e4ebe6; --muted:#9ca9a1; --line:#2e3a34; --rule:#26312b;
+  --accent:#7cc48a; --accent-soft:#1f3326; --navy:#9dbbe6; --navy-soft:#1d2a3d;
+  --blank:#f0a36d; --mark:#cbb341; --mark-ink:#1c1700; --bad:#f08a80; --bad-soft:#3d1d1b; --good:#6fd59a; --good-soft:#183626;
+  --k1:#8fb2ff;--k1s:#1d2a47;--k2:#4fd1c5;--k2s:#16322f;--k3:#b69cff;--k3s:#2a2147;--k4:#7cc48a;--k4s:#1b3322;--k5:#f5ad5b;--k5s:#3a2812;--k6:#aab4c4;--k6s:#262d38;
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.7}
+.wrap{max-width:880px;margin:0 auto;padding-block:24px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{line-height:1.3;text-wrap:balance;margin:0}
+h1{font-size:1.8rem;color:var(--navy)} h2{font-size:1.4rem;color:var(--navy)} h3{font-size:1.08rem} h4{font-size:.98rem}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.3em;display:grid;gap:4px}
+code,.mono{font-family:var(--f-mono);font-size:.86em}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.head{background:var(--paper);border:1px solid var(--line);border-top:5px solid var(--navy);border-radius:6px;padding:20px 22px;display:grid;gap:14px}
+.parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.parts>div{border:1px solid var(--line);border-radius:4px;padding:10px 14px;background:var(--bg);min-width:0}
+.parts b.pts{font-family:var(--f-mono);color:var(--accent);float:right}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding-block:10px;border-bottom:1px solid var(--line);margin:18px 0 20px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.nav a{font-size:.88rem;text-decoration:none;color:var(--ink);border:1px solid var(--line);background:var(--paper);padding:4px 12px;border-radius:999px}
+.nav a:hover{border-color:var(--accent)}
+.nav .sp{flex:1}
+.btn{font:inherit;font-size:.88rem;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:4px 12px;border-radius:4px;cursor:pointer}
+.btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+a:focus-visible,.btn:focus-visible,.fr:focus-visible,summary:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+section.doc{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:22px;display:grid;gap:16px;margin-bottom:20px;scroll-margin-top:70px}
+.lead{font-size:.98rem}
+.strip{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.strip span{border:1.5px solid var(--kc,var(--accent));color:var(--kc,var(--accent));background:var(--ks,var(--accent-soft));padding:1px 10px;border-radius:4px;font-size:.86rem;font-weight:600}
+.strip i{color:var(--muted);font-style:normal}
+.k1{--kc:var(--k1);--ks:var(--k1s)}.k2{--kc:var(--k2);--ks:var(--k2s)}.k3{--kc:var(--k3);--ks:var(--k3s)}.k4{--kc:var(--k4);--ks:var(--k4s)}.k5{--kc:var(--k5);--ks:var(--k5s)}.k6{--kc:var(--k6);--ks:var(--k6s)}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.9rem}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--f-mono);font-size:.84rem}
+/* frames */
+.frames{display:grid;gap:12px}
+.fsec{border-left:4px solid var(--kc);background:var(--ks);border-radius:0 6px 6px 0;padding:10px 14px;display:grid;gap:6px;min-width:0}
+.fsec h4{color:var(--kc)}
+.fsec .job{font-size:.86rem;color:var(--muted)}
+.fr{font-family:var(--f-doc);font-size:.95rem;line-height:1.6;padding:4px 8px;background:var(--paper);border:1px solid var(--line);border-radius:3px;min-width:0;overflow-wrap:anywhere}
+.fr .b{color:var(--blank);font-family:var(--f-mono);font-size:.82em;letter-spacing:.02em}
+.fr .why{display:block;font-family:var(--f-body);font-size:.8rem;color:var(--muted)}
+.recall .fr:not(.show){cursor:pointer;color:transparent;background:repeating-linear-gradient(90deg,var(--rule) 0 10px,transparent 10px 14px);user-select:none}
+.recall .fr:not(.show) .b,.recall .fr:not(.show) .why{color:transparent}
+.recall .fr:not(.show)::before{content:"แตะเพื่อดู";color:var(--muted);font-family:var(--f-body);font-size:.78rem;float:right}
+.hint{font-size:.85rem;color:var(--muted)}
+/* model answer sheet */
+details.model,details.mine{border:1px solid var(--line);border-radius:6px;background:var(--bg)}
+details>summary{cursor:pointer;padding:10px 14px;font-weight:600;font-size:.92rem;color:var(--navy)}
+details[open]>summary{border-bottom:1px solid var(--line)}
+.sheet{background:var(--sheet);margin:12px;padding:18px;border:1px solid var(--line);display:grid;gap:10px;background-image:repeating-linear-gradient(transparent 0 27px,var(--rule) 27px 28px)}
+.sheet .ttl{font-family:var(--f-doc);font-weight:600;font-size:1.05rem;text-align:center}
+.blk{display:grid;grid-template-columns:minmax(0,1fr) 11.5rem;gap:12px;align-items:start}
+.blk .tx{font-family:var(--f-doc);font-size:.93rem;line-height:1.65;border-left:4px solid var(--kc);background:var(--ks);padding:6px 10px;min-width:0;overflow-wrap:anywhere;white-space:pre-line}
+.blk .tx h5{font-family:var(--f-doc);font-size:.95rem;margin:0 0 2px;font-weight:600;white-space:normal}
+.blk .lb{font-size:.8rem;line-height:1.45;color:var(--muted);padding-top:4px}
+.blk .lb b{display:block;color:var(--kc);font-size:.86rem}
+.memohd{font-family:var(--f-mono);font-size:.82rem;display:grid;grid-template-columns:auto 1fr;gap:0 12px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.hz{border:2px solid var(--bad);background:var(--bad-soft);padding:6px 10px;font-weight:600;white-space:normal}
+.wc{font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+@media (max-width:640px){.blk{grid-template-columns:1fr;gap:2px}.blk .lb{order:-1;padding-top:0}}
+/* draft */
+.mine .inner{padding:12px 14px;display:grid;gap:8px}
+textarea{width:100%;min-height:14rem;font-family:var(--f-doc);font-size:.95rem;line-height:1.6;padding:10px;border:1px solid var(--line);border-radius:4px;background:var(--sheet);color:var(--ink);resize:vertical}
+/* boxes */
+.trap{background:var(--mark);color:var(--mark-ink);border-radius:4px;padding:10px 14px;font-size:.93rem}
+.trap b.t{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.06em;margin-right:6px}
+.calc{border:1px dashed var(--accent);border-radius:6px;padding:12px 14px;display:grid;gap:6px;background:var(--accent-soft)}
+.calc .eq{font-family:var(--f-mono);font-size:.86rem;overflow-wrap:anywhere}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.grid2>div{min-width:0}
+.check{list-style:none;padding:0}
+.check li{padding-left:1.6em;position:relative}
+.check li::before{content:"☐";position:absolute;left:0;color:var(--accent)}
+/* drills */
+.drill{display:grid;gap:10px}
+.dc{border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+.dq{padding:10px 14px;display:grid;gap:6px}
+.dq .tag{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.dq .bad{font-family:var(--f-doc);font-size:.93rem;border-left:3px solid var(--bad);padding:4px 10px;background:var(--bad-soft);white-space:pre-line}
+.dc summary{padding:6px 14px 10px;color:var(--accent);font-size:.86rem;font-weight:600;border:0!important}
+.da{padding:0 14px 12px;display:grid;gap:6px;font-size:.9rem}
+.da .good{font-family:var(--f-doc);font-size:.93rem;border-left:3px solid var(--good);padding:4px 10px;background:var(--good-soft);white-space:pre-line}
+.flow{counter-reset:s;list-style:none;padding:0;display:grid;gap:6px}
+.flow li{counter-increment:s;display:grid;grid-template-columns:2rem 1fr;gap:8px;align-items:start}
+.flow li::before{content:counter(s);font-family:var(--f-mono);font-weight:600;color:var(--paper);background:var(--navy);border-radius:50%;width:1.6rem;height:1.6rem;display:grid;place-items:center;font-size:.8rem;margin-top:2px}
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <div class="eyebrow">GTS302 · Technical Writing · Final Examination</div>
+    <h1>GTS302 Final Templates</h1>
+    <p class="lead">ข้อสอบ Final ให้เขียนทั้งหมด ออกเอกสาร 4 ประเภทคือ Investigative Reports (Ch 9), Instructions (Ch 10), Recommendation Reports (Ch 13) และ Proposals (Ch 14) หน้านี้รวบรวมโครงสร้างกับประโยคตั้งต้นของแต่ละประเภทให้ท่องไปใช้ในห้องสอบได้ทันที</p>
+    <div class="parts">
+      <div><b class="pts">10 pts</b><b>Part 1</b> · Partial writing<br><span class="muted">แก้หรือเขียนใหม่บาง section ดูโครงสร้าง ข้อมูลที่เกี่ยวข้อง ภาษา และ format ฝึกได้ที่หัวข้อ <a href="#part1">Part 1 drills</a></span></div>
+      <div><b class="pts">15 pts</b><b>Part 2</b> · Full document<br><span class="muted">เขียนเอกสารเต็มจากสถานการณ์และข้อมูลที่ให้ ต้องใช้ primary และ secondary structure ถูก ตีความข้อมูล และเขียนเป็นคำของตัวเอง</span></div>
+    </div>
+    <p class="hint">วิธีใช้: อ่าน frame ของแต่ละ section ให้ครบหนึ่งรอบ แล้วกด <b>โหมดท่องจำ</b> เพื่อซ่อน frame ทั้งหมด จากนั้นลองนึกประโยคเองก่อนแตะดูเฉลย ถ้าจำได้แล้วให้ลองเขียนเต็มฉบับในกล่อง "เขียนเอง" (ร่างที่พิมพ์ไว้จะเก็บอยู่ในเบราว์เซอร์นี้) แล้วเทียบกับตัวอย่าง</p>
+  </header>
+
+  <nav class="nav" aria-label="ไปยังหัวข้อ">
+    <a href="#before">ก่อนเขียน</a><a href="#rec">Recommendation</a><a href="#pro">Proposal</a><a href="#ins">Instructions</a><a href="#inv">Investigative</a><a href="#part1">Part 1 drills</a><a href="#check">Checklist</a>
+    <span class="sp"></span>
+    <button class="btn" id="recall-btn" type="button" aria-pressed="false">โหมดท่องจำ</button>
+  </nav>
+
+  <section class="doc" id="before">
+    <div class="eyebrow">ทุกประเภท · 5 นาทีแรกในห้องสอบ</div>
+    <h2>ลำดับก่อนลงมือเขียน</h2>
+    <ol class="flow">
+      <li><div><b>อ่านโจทย์แล้ววงหัวข้อที่โจทย์สั่ง</b> ถ้าโจทย์บอก heading มาให้ (เช่น Week 12 สั่ง Introduction, Recommendation, Scope and Criteria, Discussion, Conclusion) ต้องใช้ชื่อนั้นตามลำดับนั้น</div></li>
+      <li><div><b>ระบุประเภทเอกสารและผู้อ่าน</b> ผู้อ่านขอเอกสารนี้หรือเปล่า (solicited/unsolicited) อยู่ในหรือนอกองค์กร (internal/external) ทั้งสองอย่างนี้กำหนดลำดับ section และรูปแบบ memo/letter</div></li>
+      <li><div><b>แตกข้อมูลลง section</b> ข้างตัวเลขแต่ละตัวในโจทย์ ให้จดว่าจะใช้ใน section ไหน ข้อมูลที่ไม่ตรงหน้าที่ของ section ไหนเลยให้ตัดทิ้ง</div></li>
+      <li><div><b>คำนวณก่อนเขียน</b> เช่น cost per cycle, ยอดประหยัดต่อปี, payback period คิดให้เสร็จบนกระดาษทดก่อน แล้วค่อยเขียนตัวเลขลงเนื้อหา</div></li>
+      <li><div><b>เขียนตาม frame แล้วใช้ checklist ตรวจ</b> โจทย์ย้ำว่าเขียนแกรมมาร์ถูกอย่างเดียวยังไม่พอ ทุก section ต้องทำหน้าที่ของตัวเองให้ครบ</div></li>
+    </ol>
+  </section>
+
+  <!-- ============ RECOMMENDATION ============ -->
+  <section class="doc" id="rec">
+    <div class="eyebrow">Ch 13 · E4-10 &amp; 11 · น่าออก Part 2</div>
+    <h2>Recommendation Report</h2>
+    <p class="lead">เปรียบเทียบทางเลือก 2–3 ตัวด้วย criteria แล้วแนะนำตัวที่ดีที่สุด ผู้อ่านเป็นผู้ตัดสินใจ หลักคือจัดเนื้อหา<b>ตาม criteria</b> ห้ามเล่าทีละ source หรือทีละสินค้า</p>
+    <div class="grid2">
+      <div><h4>Solicited (ผู้อ่านขอมา · receptive)</h4><div class="strip"><span class="k1">Introduction</span><i>→</i><span class="k2">Recommendation</span><i>→</i><span class="k3">Scope</span><i>→</i><span class="k4">Discussion</span><i>→</i><span class="k6">Conclusion</span></div></div>
+      <div><h4>Unsolicited (ไม่มีใครขอ · unreceptive)</h4><div class="strip"><span class="k1">Introduction</span><i>→</i><span class="k3">Scope</span><i>→</i><span class="k4">Discussion</span><i>→</i><span class="k2">Recommendation</span></div></div>
+    </div>
+    <div class="tbl"><table>
+      <tr><th>Section</th><th>Criteria are…</th><th>หน้าที่ (secondary structure)</th></tr>
+      <tr><td>Introduction</td><td>INTRODUCED</td><td>purpose ของรายงาน, ปัญหาสั้น ๆ, ทางเลือกที่เหลือ 2–3 ตัว, รายชื่อ criteria</td></tr>
+      <tr><td>Recommendation</td><td>SUMMARIZED</td><td>บอกตัวที่แนะนำ แล้วสรุปเหตุผลสั้น ๆ ตาม criteria</td></tr>
+      <tr><td>Scope (and Criteria)</td><td>EXPLAINED and RANKED</td><td>เรียง criteria จากสำคัญมากไปน้อย และบอกว่าทำไมเรียงแบบนั้น</td></tr>
+      <tr><td>Discussion</td><td>EVALUATED</td><td>หนึ่ง subheading ต่อหนึ่ง criterion เปิดด้วยประโยค requirement แล้วเทียบทุก item ปิดด้วยว่าตัวไหนชนะใน criterion นั้น</td></tr>
+      <tr><td>Conclusion</td><td>—</td><td>ยืนยันคำแนะนำ และบอก limitation หรือ trade-off หลักหนึ่งข้อ (Week 12 สั่ง)</td></tr>
+    </table></div>
+
+    <h3>Frames ที่ต้องท่อง</h3>
+    <div class="frames">
+      <div class="fsec k1"><h4>Title</h4><p class="job">noun phrase, Title Case ไม่ใช่ประโยค</p>
+        <p class="fr" tabindex="0">Recommendation Report: Selecting <span class="b">[a/an item]</span> for <span class="b">[place/users]</span></p></div>
+      <div class="fsec k1"><h4>Introduction</h4><p class="job">decision + ปัญหา + ทางเลือก + criteria</p>
+        <p class="fr" tabindex="0"><span class="b">[The department]</span> needs to <span class="b">[buy/choose …]</span> for <span class="b">[purpose]</span>.<span class="why">ปัญหาหรือความต้องการ</span></p>
+        <p class="fr" tabindex="0">As requested by <span class="b">[name, position]</span>, this report compares <span class="b">[A]</span>, <span class="b">[B]</span>, and <span class="b">[C]</span> and recommends one for <span class="b">[purchase/use]</span>.<span class="why">solicited ให้ใส่ "As requested by" · ทางเลือกทั้งหมด</span></p>
+        <p class="fr" tabindex="0">The options are evaluated against <span class="b">[n]</span> criteria: <span class="b">[c1]</span>, <span class="b">[c2]</span>, <span class="b">[c3]</span>, and <span class="b">[c4]</span>.<span class="why">criteria INTRODUCED</span></p></div>
+      <div class="fsec k2"><h4>Recommendation</h4><p class="job">คำแนะนำ + เหตุผลย่อตาม criteria</p>
+        <p class="fr" tabindex="0">We recommend that <span class="b">[the department]</span> purchase the <span class="b">[item]</span>.<span class="why">หลัง recommend that ใช้ verb ช่องหนึ่งไม่เติม s</span></p>
+        <p class="fr" tabindex="0">It is the only product that <span class="b">[best on c1]</span>, and it has the <span class="b">[lowest/longest … on c2, c3]</span>.<span class="why">criteria SUMMARIZED เรียงตามลำดับความสำคัญ</span></p>
+        <p class="fr" tabindex="0">Its main drawback is <span class="b">[weak point]</span>.</p></div>
+      <div class="fsec k3"><h4>Scope and Criteria</h4><p class="job">เรียงลำดับและให้เหตุผล</p>
+        <p class="fr" tabindex="0">The products were evaluated against <span class="b">[n]</span> criteria, ranked in order of importance.</p>
+        <p class="fr" tabindex="0"><span class="b">[C1]</span> is the first criterion because <span class="b">[reason from the situation]</span>.</p>
+        <p class="fr" tabindex="0"><span class="b">[C2]</span> is ranked second because <span class="b">[reason]</span>. It includes <span class="b">[what this criterion covers]</span>.<span class="why">นิยามว่า criterion นี้วัดอะไร</span></p>
+        <p class="fr" tabindex="0">All product figures come from the suppliers and have not been independently tested.<span class="why">limitation ของข้อมูล (โจทย์ Week 12 เน้นมาก)</span></p></div>
+      <div class="fsec k4"><h4>Discussion · ทำซ้ำทุก criterion</h4><p class="job">subheading = ชื่อ criterion · requirement → เทียบ → trade-off → ผู้ชนะ</p>
+        <p class="fr" tabindex="0"><span class="b">[Criterion name]</span><span class="why">subheading</span></p>
+        <p class="fr" tabindex="0">The department needs <span class="b">[a product that …]</span>.<span class="why">ประโยค requirement ที่ต้องเปิดทุก subsection</span></p>
+        <p class="fr" tabindex="0"><span class="b">[A]</span> has the lowest <span class="b">[x]</span> at <span class="b">[value]</span>, compared with <span class="b">[value]</span> for <span class="b">[B]</span> and <span class="b">[value]</span> for <span class="b">[C]</span>.<span class="why">เทียบตรง ๆ ด้วยตัวเลข</span></p>
+        <p class="fr" tabindex="0">However, <span class="b">[trade-off / limitation]</span>.</p>
+        <p class="fr" tabindex="0">Therefore, <span class="b">[item]</span> is the strongest option for <span class="b">[criterion]</span>.<span class="why">ปิดทุก subsection ด้วยผู้ชนะ</span></p></div>
+      <div class="fsec k6"><h4>Conclusion</h4><p class="job">ยืนยัน + trade-off + สิ่งที่ต้องทำต่อ</p>
+        <p class="fr" tabindex="0"><span class="b">[Item]</span> is the best choice for <span class="b">[users]</span> because it leads on <span class="b">[c1, c2, c3]</span>.</p>
+        <p class="fr" tabindex="0">Its main trade-off is <span class="b">[drawback]</span>, which <span class="b">[effect]</span>.</p>
+        <p class="fr" tabindex="0">Before purchasing, the department should <span class="b">[confirm price / test …]</span>.</p></div>
+    </div>
+    <p class="trap"><b class="t">UNSOLICITED</b>เปลี่ยน Introduction เป็น "Although no one has requested this report, we have noticed that <span class="mono">[problem]</span>." แล้วย้าย Recommendation ไปไว้ท้ายสุด หลัง Discussion ที่ต้องละเอียดกว่าแบบ solicited</p>
+
+    <div class="calc">
+      <h4>ตัวเลขที่ควรคิดเองจากข้อมูล (โจทย์ชอบให้ตีความ)</h4>
+      <p class="eq">cost per cycle = price ÷ expected cycles → $48 ÷ 500 = $0.096 · $55 ÷ 800 ≈ $0.069 · $62 ÷ 1,000 = $0.062</p>
+      <p class="hint">ตัวที่ถูกที่สุดตอนซื้ออาจแพงที่สุดเมื่อคิดตลอดอายุใช้งาน ประโยคแบบนี้แสดงว่าตีความข้อมูลได้ ไม่ใช่แค่ลอกตัวเลข</p>
+    </div>
+
+    <details class="model">
+      <summary>ตัวอย่างเต็มฉบับ · Week 12 Battery Pack (≈620 คำ)</summary>
+      <div class="sheet">
+        <p class="ttl">Recommendation Report: Selecting a Battery Pack for the First-Year Electronics Laboratory</p>
+        <div class="blk k1"><div class="tx"><h5>Introduction</h5>The Electrical Engineering Department needs to purchase rechargeable battery packs for its new first-year electronics laboratory. Students with limited experience will use the packs several times a week and move them between workstations. As requested by the Laboratory Coordinator, this report compares three 12 V products, VoltPro 12, PowerCell 12, and EnerGo 12, and recommends one for purchase. The evidence comes from the coordinator's memo, two supplier emails, and one specification sheet.</div><div class="lb"><b>Introduction</b>decision → users and problem → solicited + options → sources</div></div>
+        <div class="blk k2"><div class="tx"><h5>Recommendation</h5>We recommend that the department purchase the EnerGo 12. It is the only product that lists overheating protection in addition to overcharge and short-circuit protection. Although it has the highest unit price, it has the lowest cost per charge cycle and the longest expected life. It also charges fastest and shows clearly when charging is complete.</div><div class="lb"><b>Recommendation</b>ตัวที่เลือก แล้วสรุปเหตุผลเรียงตาม criteria 1→4 พร้อมยอมรับจุดด้อย</div></div>
+        <div class="blk k3"><div class="tx"><h5>Scope and Criteria</h5>The products were evaluated against four criteria in the order ranked by the coordinator. Safety is the first criterion because inexperienced students will charge and handle the units often. Cost is ranked second because the equipment budget is limited; it includes both the purchase price and the expected service life. Useful life is third because longer-lasting batteries reduce replacements and interruptions to classes. Ease of use is fourth and covers weight, charging time, and the charging-status indicator. All product figures come from the suppliers and have not been independently tested.</div><div class="lb"><b>Scope</b>ranked + เหตุผลทุกข้อ + นิยามว่า criterion ครอบคลุมอะไร + limitation</div></div>
+        <div class="blk k4"><div class="tx"><h5>Discussion</h5><h5>Safety</h5>The department needs a battery with suitable protection for routine charging and use. All three products have overcharge and short-circuit protection, and EnerGo 12 is the only one that also lists overheating protection. PowerCell's sheet does not list this feature, but it states that the omission does not prove the product is unsafe. Because no supplier provided independent safety tests, the specifications alone cannot show that EnerGo 12 is safer overall. However, the additional listed protection is an advantage for new users, so EnerGo 12 is preferred for safety.</div><div class="lb"><b>Discussion · C1</b>requirement → เทียบ → limitation ของหลักฐาน → ผู้ชนะ</div></div>
+        <div class="blk k4"><div class="tx"><h5>Cost</h5>The department needs a product that fits a limited budget over its whole service life. VoltPro 12 has the lowest unit price at $48, compared with $55 for PowerCell 12 and $62 for EnerGo 12. However, when the price is divided by the expected number of cycles, the cost per cycle is about $0.096 for VoltPro 12, $0.069 for PowerCell 12, and $0.062 for EnerGo 12. The cheapest unit is therefore the most expensive to use over time. Prices may change with order size, and EnerGo's quoted price applies only to orders of fewer than 20 units. EnerGo 12 offers the best long-term value, while VoltPro 12 has the lowest initial cost.</div><div class="lb"><b>Discussion · C2</b>ตัวเลขที่คำนวณเอง = การตีความข้อมูล</div></div>
+        <div class="blk k4"><div class="tx"><h5>Useful Life</h5>The batteries must last through repeated use during the teaching term. EnerGo 12 is rated for about 1,000 cycles, PowerCell 12 for about 800, and VoltPro 12 for about 500. EnerGo 12 and PowerCell 12 also include a two-year warranty, while VoltPro 12 includes only one year. These cycle figures are estimates, not guarantees. Even so, EnerGo 12 is expected to last the longest.</div><div class="lb"><b>Discussion · C3</b>hedge: estimates, not guarantees</div></div>
+        <div class="blk k4"><div class="tx"><h5>Ease of Use</h5>Students and technicians must be able to carry the units, see when charging is complete, and prepare them for each session. VoltPro 12 is the lightest at 1.4 kg, but it takes about five hours to charge and has no status display beyond the charger light. PowerCell 12 is the heaviest at 1.7 kg and charges in about four hours with a simple indicator. EnerGo 12 weighs 1.5 kg, charges in about three hours, and has a light that changes colour when charging is complete. EnerGo 12 is therefore the easiest to prepare between classes, although VoltPro 12 is lighter.</div><div class="lb"><b>Discussion · C4</b>ครบทั้ง 3 ตัวแปรที่ memo ระบุ</div></div>
+        <div class="blk k6"><div class="tx"><h5>Conclusion</h5>EnerGo 12 is the best choice for the first-year laboratory because it leads on listed safety features, cost per cycle, useful life, and charging time. Its main trade-off is the highest unit price, which raises the initial cost of a class set. Because all figures come from suppliers, the department should confirm the final price for its order size before purchasing.</div><div class="lb"><b>Conclusion</b>ยืนยัน → trade-off หลัก → next step</div></div>
+      </div>
+    </details>
+    <details class="mine" data-key="rec"><summary>เขียนเองก่อนดูตัวอย่าง</summary><div class="inner"><p class="hint">โจทย์: เลือก battery pack ให้แล็บปี 1 จาก VoltPro 12 / PowerCell 12 / EnerGo 12 ด้วย 4 criteria (Safety, Cost, Useful life, Ease of use) ยาว 500–750 คำ</p><textarea id="draft-rec" aria-label="ร่าง recommendation report"></textarea><p class="wc" data-for="draft-rec">0 words</p></div></details>
+  </section>
+
+  <!-- ============ PROPOSAL ============ -->
+  <section class="doc" id="pro">
+    <div class="eyebrow">Ch 14 · E4-12 &amp; 13 · น่าออก Part 2</div>
+    <h2>Proposal (short informal memo)</h2>
+    <p class="lead">เสนอ<b>ทางแก้เดียว</b>ให้ปัญหาหนึ่งเรื่อง แล้วโน้มน้าวให้ผู้อ่านอนุมัติ Proposal ไม่เทียบ A กับ B ถ้าโจทย์ให้ทางเลือกหลายตัวมาเทียบกัน นั่นคือ Recommendation Report</p>
+    <div class="strip"><span class="k6">Memo header</span><i>→</i><span class="k5">Problem</span><i>→</i><span class="k1">Background</span><i>→</i><span class="k2">Solution(s)</span><i>→</i><span class="k4">Benefits</span><i>→</i><span class="k3">Conclusion</span></div>
+    <div class="tbl"><table>
+      <tr><th>Heading</th><th>หน้าที่ (ตามโจทย์ Week 13 และสไลด์)</th><th>ภาษา</th></tr>
+      <tr><td>Problem</td><td>บอกปัญหาและแนะนำทางแก้สั้น ๆ (ทำหน้าที่เป็น Introduction)</td><td>Present Simple</td></tr>
+      <tr><td>Background</td><td>อธิบายปัญหาละเอียด ใส่<b>สถิติและหลักฐาน</b> มีตารางหรือกราฟ แล้วบอกว่าถ้าปล่อยไว้จะเกิดอะไร</td><td>Present Simple + may</td></tr>
+      <tr><td>Solution(s)</td><td>ทางแก้คืออะไร ทำงานอย่างไร ราคาเท่าไร</td><td>would / could</td></tr>
+      <tr><td>Benefits</td><td>ผลดีด้าน energy, financial, operational พร้อมตัวเลข ระบุว่าเป็นค่าประมาณ</td><td>would / is estimated to</td></tr>
+      <tr><td>Conclusion</td><td>ทวน problem, solution และ benefit หลัก แล้วขอให้ผู้อ่านลงมือ</td><td>I hope you will …</td></tr>
+    </table></div>
+
+    <h3>Frames ที่ต้องท่อง</h3>
+    <div class="frames">
+      <div class="fsec k6"><h4>Memo header</h4><p class="job">internal proposal = memo</p>
+        <p class="fr" tabindex="0">TO: <span class="b">[name, position]</span> · FROM: <span class="b">[you, position]</span> · DATE: <span class="b">[date]</span> · SUBJECT: Proposal to <span class="b">[verb + object]</span></p></div>
+      <div class="fsec k5"><h4>Problem</h4><p class="job">ปัญหา + ทางแก้ 1 ประโยค</p>
+        <p class="fr" tabindex="0">The <span class="b">[system/situation]</span> in <span class="b">[place]</span> currently <span class="b">[problem, present simple]</span>.</p>
+        <p class="fr" tabindex="0">This <span class="b">[causes/results in]</span> <span class="b">[effect]</span>.</p>
+        <p class="fr" tabindex="0">I propose <span class="b">[replacing/installing …]</span>, which is estimated to <span class="b">[main benefit + number]</span>.</p></div>
+      <div class="fsec k1"><h4>Background</h4><p class="job">หลักฐาน + ตาราง + ผลถ้าไม่แก้</p>
+        <p class="fr" tabindex="0">The <span class="b">[system]</span> is <span class="b">[n]</span> years old and <span class="b">[how it works now]</span>.</p>
+        <p class="fr" tabindex="0">Table 1 summarizes the results of <span class="b">[the audit/survey]</span>.<span class="why">อ้างตารางในเนื้อความก่อนวางตาราง · ตารางต้องมีชื่อ Table 1. …</span></p>
+        <p class="fr" tabindex="0">As Table 1 shows, <span class="b">[key figure]</span> is <span class="b">[higher/outside]</span> the required <span class="b">[standard]</span>.</p>
+        <p class="fr" tabindex="0">If the problem continues, <span class="b">[cost/risk]</span> may <span class="b">[consequence]</span>.</p></div>
+      <div class="fsec k2"><h4>Solution(s)</h4><p class="job">what + how it works + cost</p>
+        <p class="fr" tabindex="0">The proposed solution is <span class="b">[a/an product]</span> from <span class="b">[supplier]</span>.</p>
+        <p class="fr" tabindex="0">Unlike the current system, it would <span class="b">[how it works differently]</span>.</p>
+        <p class="fr" tabindex="0">Before installation, <span class="b">[supplier]</span> would need to confirm <span class="b">[requirements]</span>.</p>
+        <p class="fr" tabindex="0">The estimated cost of <span class="b">[equipment, installation, and testing]</span> is <span class="b">[amount]</span>.</p></div>
+      <div class="fsec k4"><h4>Benefits</h4><p class="job">แยกเป็นด้าน ๆ + ตัวเลข + hedge</p>
+        <p class="fr" tabindex="0">The new system would reduce <span class="b">[x]</span> by <span class="b">[%]</span>, from <span class="b">[old]</span> to <span class="b">[new]</span>.</p>
+        <p class="fr" tabindex="0">This would save about <span class="b">[amount]</span> per year (<span class="b">[calculation]</span>).</p>
+        <p class="fr" tabindex="0">The simple payback period would therefore be about <span class="b">[n]</span> years (<span class="b">[cost ÷ annual saving]</span>).</p>
+        <p class="fr" tabindex="0">These figures are estimates, not guaranteed results.<span class="why">โจทย์ Week 13 สั่งให้เขียนประโยคนี้</span></p></div>
+      <div class="fsec k3"><h4>Conclusion</h4><p class="job">problem + solution + benefit + action</p>
+        <p class="fr" tabindex="0">The current <span class="b">[system]</span> <span class="b">[problem]</span>.</p>
+        <p class="fr" tabindex="0">Replacing it with <span class="b">[solution]</span> would cost about <span class="b">[amount]</span> and could save about <span class="b">[amount]</span> each year.</p>
+        <p class="fr" tabindex="0">I hope you will approve <span class="b">[action]</span>, as the benefits outweigh the cost.</p></div>
+    </div>
+
+    <div class="calc">
+      <h4>สูตรคำนวณที่ Week 13 สั่ง</h4>
+      <p class="eq">annual saving = (old kWh − new kWh) × tariff = (120,000 − 90,000) × 4.50 = 135,000 THB</p>
+      <p class="eq">% reduction = (old − new) ÷ old × 100 = 30,000 ÷ 120,000 × 100 = 25%</p>
+      <p class="eq">simple payback = cost ÷ annual saving = 450,000 ÷ 135,000 ≈ 3.3 years</p>
+      <p class="hint">ถ้านับค่า maintenance ที่ลดลงด้วย (45,000 → 30,000 = 15,000) ยอดประหยัดรวมเป็น 150,000 และ payback เหลือ 3 ปีพอดี แต่ supplier บอกว่าส่วนนี้ไม่ guaranteed จึงควรเขียนแยกไว้</p>
+    </div>
+    <p class="trap"><b class="t">TRAP</b>ห้ามเขียน "will save exactly 135,000 baht" หรือ "guarantees" ให้ใช้ would, could, is estimated to, approximately เพราะตัวเลขมาจาก supplier ส่วนการ<b>มี</b> heading ครบเป็นเรื่อง structure ถ้าขาดจะโดนหักคะแนน</p>
+
+    <details class="model">
+      <summary>ตัวอย่างเต็มฉบับ · Week 13 Chiller Replacement (≈600 คำ)</summary>
+      <div class="sheet">
+        <div class="memohd"><span>TO:</span><span>SIIT Facilities Manager</span><span>FROM:</span><span>[Your name], Engineering Laboratory Staff</span><span>DATE:</span><span>25 November 2026</span><span>SUBJECT:</span><span>Proposal to Replace the Engineering Laboratory Chiller</span></div>
+        <div class="blk k5"><div class="tx"><h5>Problem</h5>The air-conditioning system in one SIIT engineering laboratory uses a large amount of electricity and cannot keep the room within the required temperature range. The 12-year-old chiller runs at a fixed speed even when little cooling is needed. I propose replacing it with a variable-speed, high-efficiency air-cooled chiller, which is estimated to cut electricity costs by about 135,000 THB per year.</div><div class="lb"><b>Problem</b>ปัญหา (present simple) → สาเหตุ → ทางแก้ 1 ประโยค + ตัวเลขดึงความสนใจ</div></div>
+        <div class="blk k1"><div class="tx"><h5>Background</h5>The laboratory uses a fixed-speed, air-cooled chiller connected to an air-handling unit (AHU). The chiller produces cold water, and the AHU uses this water to cool and circulate air. Because the compressor mainly runs at one speed, the system uses more electricity than necessary when demand is low. Table 1 summarizes the results of the internal energy audit.</div><div class="lb"><b>Background</b>อธิบายกลไกของปัญหา แล้วนำเข้าตาราง</div></div>
+        <div class="blk k1"><div class="tx"><div class="tbl"><table><tr><th colspan="2">Table 1. Audit results for the current cooling system</th></tr><tr><td>System age</td><td class="num">12 years</td></tr><tr><td>Annual electricity use</td><td class="num">120,000 kWh</td></tr><tr><td>Electricity tariff</td><td class="num">4.50 THB/kWh</td></tr><tr><td>Annual electricity cost</td><td class="num">540,000 THB</td></tr><tr><td>Annual maintenance cost</td><td class="num">45,000 THB</td></tr><tr><td>Observed room temperature</td><td class="num">20–27 °C</td></tr><tr><td>Required room temperature</td><td class="num">22–24 °C</td></tr><tr><td>Unplanned downtime</td><td class="num">30 hours/year</td></tr></table></div></div><div class="lb"><b>Table</b>โจทย์สั่งให้มีตารางหรือกราฟ · ใส่ชื่อ Table 1 และหน่วยทุกแถว</div></div>
+        <div class="blk k1"><div class="tx">As Table 1 shows, the room temperature sometimes moves outside the required 22–24 °C range, and maintenance problems cause 30 hours of unplanned downtime each year. If the problem continues, electricity and maintenance costs will remain high, unstable temperatures may damage equipment or affect experiments, and further breakdowns may interrupt teaching and research.</div><div class="lb"><b>Background</b>ตีความตาราง → ผลถ้าไม่แก้ (โจทย์สั่ง)</div></div>
+        <div class="blk k2"><div class="tx"><h5>Solutions</h5>The proposed system is a variable-speed, high-efficiency air-cooled chiller from Sahakijanan International Co., Ltd. (VICH), connected to an AHU. Unlike the current chiller, it can change its compressor speed to match cooling demand, so it would reduce its output when less cooling is needed. Sensors and automatic controls would adjust the cooling output to keep the laboratory at 22–24 °C. Before installation, the supplier would confirm the laboratory's cooling requirements, including equipment heat, humidity, and ventilation, so that the system is neither too small nor too large. The estimated cost of the equipment, installation, and testing is 450,000 THB.</div><div class="lb"><b>Solution</b>what → how it works → เงื่อนไขก่อนติดตั้ง → cost</div></div>
+        <div class="blk k4"><div class="tx"><h5>Benefits</h5>Energy: The supplier estimates that the new system would reduce annual electricity use by 25%, from 120,000 kWh to 90,000 kWh, a saving of 30,000 kWh.
+Financial: At 4.50 THB per kWh, this would save about 135,000 THB per year (30,000 × 4.50). The simple payback period would therefore be about 3.3 years (450,000 ÷ 135,000). Maintenance costs might also fall from 45,000 to 30,000 THB per year, which would shorten the payback period to about three years, but this saving is not guaranteed.
+Operational: Automatic controls would help keep the room within the required temperature range, which would protect equipment and experiments. Fewer breakdowns could also reduce interruptions, although the expected downtime has not yet been confirmed.
+These figures are estimates, not guaranteed results. SIIT should request a detailed quotation and measure electricity use and room temperature after installation to check performance.</div><div class="lb"><b>Benefits</b>energy / financial / operational ตามที่โจทย์แบ่ง + การคำนวณ + hedge</div></div>
+        <div class="blk k3"><div class="tx"><h5>Conclusion</h5>The current chiller wastes electricity and cannot keep the laboratory within the required temperature range. Replacing it with a variable-speed chiller would cost about 450,000 THB and could save about 135,000 THB in electricity each year, so it would pay for itself in about 3.3 years while improving temperature control. I hope you will approve a request for a detailed quotation from VICH so that the replacement can proceed once the laboratory's cooling requirements are confirmed.</div><div class="lb"><b>Conclusion</b>problem → solution + cost → benefit → action</div></div>
+      </div>
+    </details>
+    <details class="mine" data-key="pro"><summary>เขียนเองก่อนดูตัวอย่าง</summary><div class="inner"><p class="hint">โจทย์: memo proposal ให้ SIIT เปลี่ยน chiller อายุ 12 ปี ใช้ 5 headings ต้องมีตาราง คำนวณยอดประหยัดค่าไฟและ payback ยาว 500–750 คำ</p><textarea id="draft-pro" aria-label="ร่าง proposal"></textarea><p class="wc" data-for="draft-pro">0 words</p></div></details>
+  </section>
+
+  <!-- ============ INSTRUCTIONS ============ -->
+  <section class="doc" id="ins">
+    <div class="eyebrow">Ch 10 · E4-09</div>
+    <h2>Instructions</h2>
+    <p class="lead">ลำดับขั้นตอนให้คนที่ไม่เคยทำงานนั้นทำตามได้ Title กับ Steps เป็น primary structure ที่ขาดไม่ได้ ส่วน Introduction, materials list, hazard alert และ graphics เพิ่มตามงาน ระวังอย่าเขียนออกมาเป็นรายการ tips and advice</p>
+    <div class="strip"><span class="k1">Title</span><i>→</i><span class="k6">Introduction</span><i>→</i><span class="k3">Materials / Ingredients</span><i>→</i><span class="k2">Steps</span><i>+</i><span class="k5">Hazard alerts</span><i>+</i><span class="k4">Explanations</span></div>
+    <div class="frames">
+      <div class="fsec k1"><h4>Title</h4><p class="job">ไม่ใช่ประโยค</p>
+        <p class="fr" tabindex="0">How to <span class="b">[verb + object]</span></p>
+        <p class="fr" tabindex="0"><span class="b">[Verb-ing]</span> the <span class="b">[object]</span><span class="why">gerund + object เช่น Installing the J112 Shock Absorber</span></p></div>
+      <div class="fsec k6"><h4>Introduction</h4><p class="job">สั้น: purpose, scope, เวลา, คำแนะนำ</p>
+        <p class="fr" tabindex="0">The following <span class="b">[n]</span> steps explain how to <span class="b">[task]</span>.</p>
+        <p class="fr" tabindex="0">This procedure takes about <span class="b">[time]</span>.</p></div>
+      <div class="fsec k3"><h4>Materials / Ingredients</h4><p class="job">list ของ noun phrase วางก่อน steps</p>
+        <p class="fr" tabindex="0">You will need: <span class="b">[noun phrase]</span>; <span class="b">[noun phrase]</span>; <span class="b">[noun phrase]</span></p></div>
+      <div class="fsec k5"><h4>Hazard alert</h4><p class="job">ตัวพิมพ์ใหญ่ ตัวหนา อยู่ในกรอบ วาง<b>ก่อน</b> step ที่อันตราย และต้องมีเหตุผล</p>
+        <p class="fr" tabindex="0"><b>WARNING:</b> Do not <span class="b">[action]</span>. <span class="b">[Hazard]</span> can cause <span class="b">[injury/damage]</span>.<span class="why">ใช้คำว่า CAUTION, WARNING หรือ DANGER</span></p></div>
+      <div class="fsec k2"><h4>Steps</h4><p class="job">imperative · หนึ่ง action ต่อหนึ่ง step · เรียงตามเวลา</p>
+        <p class="fr" tabindex="0">1. <span class="b">[Verb]</span> the <span class="b">[object]</span> <span class="b">[where/how]</span>.</p>
+        <p class="fr" tabindex="0">2. When/After/If <span class="b">[condition]</span>, <span class="b">[verb]</span> the <span class="b">[object]</span>.<span class="why">dependent clause + comma + imperative</span></p></div>
+      <div class="fsec k4"><h4>Explanation</h4><p class="job">ตามหลัง step บอกผลหรือเหตุผล ไม่ใช่คำสั่งใหม่</p>
+        <p class="fr" tabindex="0">The <span class="b">[object]</span> will <span class="b">[result]</span>.</p></div>
+    </div>
+    <details class="model">
+      <summary>ตัวอย่างเต็มฉบับ · Charging the EnerGo 12 Battery Pack</summary>
+      <div class="sheet">
+        <div class="blk k1"><div class="tx"><h5>Charging the EnerGo 12 Battery Pack</h5></div><div class="lb"><b>Title</b>gerund + object</div></div>
+        <div class="blk k6"><div class="tx">Charge each battery pack before a practical session. The following six steps explain how to charge one unit safely. A full charge takes about three hours.</div><div class="lb"><b>Introduction</b>purpose + scope + เวลา</div></div>
+        <div class="blk k3"><div class="tx">You will need:
+• one EnerGo 12 battery pack
+• one EnerGo charger and cable
+• a dry, well-ventilated bench</div><div class="lb"><b>Materials</b>noun phrases</div></div>
+        <div class="blk k2"><div class="tx">1. Inspect the housing and connectors for cracks or other damage.</div><div class="lb"><b>Step</b>imperative</div></div>
+        <div class="blk k4"><div class="tx">Do not charge a damaged unit. Report it to the technician.</div><div class="lb"><b>Explanation</b>สิ่งที่ไม่ควรทำ</div></div>
+        <div class="blk k5"><div class="tx"><span class="hz">WARNING: Do not charge the battery on a wet surface. Moisture can cause a short circuit and electric shock.</span></div><div class="lb"><b>Hazard alert</b>ก่อน step 2 + เหตุผล</div></div>
+        <div class="blk k2"><div class="tx">2. Place the battery pack on a dry, well-ventilated bench.
+3. Connect the charger cable to the charging port on the battery pack.
+4. Plug the charger into a wall socket.</div><div class="lb"><b>Steps</b>ข้อละ 1 action</div></div>
+        <div class="blk k4"><div class="tx">The status light will show that the unit is charging.</div><div class="lb"><b>Explanation</b>บอกสิ่งที่จะเกิด</div></div>
+        <div class="blk k5"><div class="tx"><span class="hz">CAUTION: If the unit becomes hot, unplug the charger immediately. Overheating can damage the battery and cause burns.</span></div><div class="lb"><b>Hazard alert</b></div></div>
+        <div class="blk k2"><div class="tx">5. When the status light changes colour, unplug the charger from the wall socket.
+6. Disconnect the cable from the battery pack.</div><div class="lb"><b>Steps</b>step 5 ใช้รูป dependent clause + comma + imperative</div></div>
+      </div>
+    </details>
+    <details class="mine" data-key="ins"><summary>เขียนเอง: instructions สั้น ๆ</summary><div class="inner"><p class="hint">ลองเขียน "How to Make a Cup of Instant Coffee" ให้มี title, intro, list อุปกรณ์, hazard 1 กล่องเรื่องน้ำร้อน และอย่างน้อย 6 steps</p><textarea id="draft-ins" aria-label="ร่าง instructions"></textarea><p class="wc" data-for="draft-ins">0 words</p></div></details>
+  </section>
+
+  <!-- ============ INVESTIGATIVE ============ -->
+  <section class="doc" id="inv">
+    <div class="eyebrow">Ch 9 · E4-08</div>
+    <h2>Investigative Reports</h2>
+    <p class="lead">Ch 9 มีหลายแบบ แบบที่น่าจะให้เขียนคือ lab report และ incident report ส่วน trip report กับ forensic report ให้จำโครงไว้ใช้ตอบ Part 1</p>
+
+    <h3>Science Lab Report</h3>
+    <div class="strip"><span class="k1">Title</span><i>→</i><span class="k6">Introduction</span><i>→</i><span class="k3">Materials and Equipment</span><i>→</i><span class="k2">Method</span><i>→</i><span class="k4">Results</span><i>→</i><span class="k5">Discussion</span><i>→</i><span class="k1">Conclusion</span></div>
+    <div class="frames">
+      <div class="fsec k1"><h4>Title</h4><p class="job">noun phrase, Title Case ห้ามเป็นประโยค</p>
+        <p class="fr" tabindex="0">Testing <span class="b">[the effect of X on Y]</span></p></div>
+      <div class="fsec k6"><h4>Introduction</h4><p class="job">purpose = to + verb</p>
+        <p class="fr" tabindex="0">The purpose of this experiment is to <span class="b">[investigate/determine …]</span>.</p></div>
+      <div class="fsec k3"><h4>Materials and Equipment</h4><p class="job">list ของ noun phrase · equipment ไม่เติม s</p>
+        <p class="fr" tabindex="0"><span class="b">[number + adjective + noun]</span> เช่น Three identical 12 V battery packs</p></div>
+      <div class="fsec k2"><h4>Method</h4><p class="job">past passive · ไม่มี I/we · ละเอียดพอให้ทำซ้ำได้</p>
+        <p class="fr" tabindex="0"><span class="b">[Object]</span> was/were <span class="b">[V3]</span> <span class="b">[exact amount/time]</span>.<span class="why">Each battery was fully charged for four hours.</span></p></div>
+      <div class="fsec k4"><h4>Results</h4><p class="job">facts เท่านั้น ไม่มี because ไม่ใส่อารมณ์</p>
+        <p class="fr" tabindex="0">Table 1 shows <span class="b">[what was measured]</span>. <span class="b">[Item]</span> <span class="b">[measured value]</span>.</p></div>
+      <div class="fsec k5"><h4>Discussion</h4><p class="job">WHY + เทียบทฤษฎี + วิจารณ์วิธีทดลอง</p>
+        <p class="fr" tabindex="0"><span class="b">[Result]</span> most likely occurred because <span class="b">[reason]</span>. This suggests that <span class="b">[meaning]</span>.</p></div>
+      <div class="fsec k1"><h4>Conclusion</h4><p class="job">ตอบ purpose + เสนอการทดลองต่อ</p>
+        <p class="fr" tabindex="0">The results show that <span class="b">[answer to purpose]</span>. Further experiments should <span class="b">[next test]</span>.</p></div>
+    </div>
+
+    <h3>Incident Report</h3>
+    <div class="strip"><span class="k6">Summary</span><i>→</i><span class="k2">Description</span><i>→</i><span class="k5">Outcomes</span><i>→</i><span class="k1">Conclusion</span></div>
+    <div class="frames">
+      <div class="fsec k6"><h4>Summary</h4><p class="job">เหตุอะไร เมื่อไร ผลคืออะไร ในประโยคเดียว</p>
+        <p class="fr" tabindex="0">On <span class="b">[day, date]</span>, <span class="b">[who]</span> <span class="b">[what went wrong]</span>, causing <span class="b">[damage/injury]</span>.</p></div>
+      <div class="fsec k2"><h4>Description</h4><p class="job">ตามลำดับเวลา บุคคลที่ 3 ข้อเท็จจริงล้วน (อาจใช้เป็นหลักฐานในศาล)</p>
+        <p class="fr" tabindex="0">At <span class="b">[exact time]</span>, <span class="b">[name, position]</span> <span class="b">[action]</span>.</p></div>
+      <div class="fsec k5"><h4>Outcomes</h4><p class="job">ความเสียหาย ค่าใช้จ่าย เวลาที่เสีย</p>
+        <p class="fr" tabindex="0">As a result of this incident, <span class="b">[delay/cost/injury]</span>.</p></div>
+      <div class="fsec k1"><h4>Conclusion</h4><p class="job">สิ่งที่ทำเพื่อไม่ให้เกิดซ้ำ</p>
+        <p class="fr" tabindex="0">To prevent this from happening again, <span class="b">[action taken/required]</span>.</p></div>
+    </div>
+    <details class="model">
+      <summary>ตัวอย่าง Incident Report สั้น</summary>
+      <div class="sheet">
+        <div class="blk k6"><div class="tx"><h5>Summary</h5>On Tuesday, 10 November, a student charged a damaged battery pack in Laboratory 3, causing the unit to overheat and melt part of the bench mat.</div><div class="lb"><b>Summary</b>who, what, when, result</div></div>
+        <div class="blk k2"><div class="tx"><h5>Description</h5>At 1:15 p.m., student Nida P. connected a VoltPro 12 battery pack with a cracked housing to its charger. At 1:40 p.m., Laboratory Technician Somchai K. noticed a burning smell and unplugged the charger. The housing was too hot to touch, and the bench mat under the unit had melted.</div><div class="lb"><b>Description</b>เวลาแม่นยำ · ชื่อ + ตำแหน่ง · บุคคลที่ 3 · ไม่ตีความ</div></div>
+        <div class="blk k5"><div class="tx"><h5>Outcomes</h5>As a result of this incident, the practical class was stopped for 30 minutes. The battery pack and bench mat were replaced at a cost of 2,100 THB. No one was injured.</div><div class="lb"><b>Outcomes</b>เวลา + เงิน + คน</div></div>
+        <div class="blk k1"><div class="tx"><h5>Conclusion</h5>To prevent this from happening again, all students must now inspect each unit before charging, and damaged units must be given to the technician immediately.</div><div class="lb"><b>Conclusion</b>prevention</div></div>
+      </div>
+    </details>
+
+    <div class="grid2">
+      <div><h3>Trip Report (memo)</h3><ul>
+        <li>TO / FROM / DATE / SUBJECT</li>
+        <li>Purpose: <span class="mono">My mission in [place] was to [verb].</span></li>
+        <li>แต่ละที่ที่ไป: <span class="mono">[Company], [City] ([date])</span> + เฉพาะ essential details</li>
+        <li>Conclusion: <span class="mono">The trip was [successful] because …</span></li>
+        <li>Recommendation: <span class="mono">I recommend that we [verb] …</span></li>
+      </ul><p class="hint">ใช้ I ได้ เพราะผู้เขียนคือคนที่ไปเอง ตัดเรื่องโรงแรม อาหาร การเที่ยว</p></div>
+      <div><h3>Forensic Report</h3><ul>
+        <li>Title + วันที่ + เลขรายงาน</li>
+        <li>Purpose: <span class="mono">The basis of this report is to [verb] [evidence #].</span></li>
+        <li>Description of evidence → Table → Observations</li>
+        <li>Compiled by: [name, PhD] + References Cited</li>
+      </ul><p class="hint">objective ล้วน ไม่มี I ใช้อ้างอิง (Author year) เขียนโดยผู้เชี่ยวชาญเพื่อใช้ทางกฎหมาย</p></div>
+    </div>
+  </section>
+
+  <!-- ============ PART 1 DRILLS ============ -->
+  <section class="doc" id="part1">
+    <div class="eyebrow">Part 1 · 10 pts · revise or rewrite</div>
+    <h2>Part 1 drills: หาจุดผิดแล้วเขียนใหม่</h2>
+    <p class="lead">อ่านข้อความที่มีจุดผิด ลองเขียนฉบับแก้ในใจหรือบนกระดาษก่อน แล้วค่อยกดดูเฉลย จุดที่ข้อสอบแบบนี้ชอบให้แก้มีสี่เรื่อง คือโครงสร้าง, ข้อมูลที่ไม่เกี่ยว, ภาษา และ format</p>
+    <div class="drill">
+      <div class="dc"><div class="dq"><span class="tag">Instructions · step</span><p class="bad">3. Start the engine and run it to idling speed while opening the radiator cap and checking the coolant level.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>overloaded step มีหลาย action ในข้อเดียว ต้องแยกเป็นข้อละหนึ่ง action</p><p class="good">3. Start the engine.
+4. Run the engine at idling speed.
+5. Open the radiator cap.
+6. Check the coolant level.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Instructions · hazard</span><p class="bad">4. Remove the lid of the pressure cooker.
+Caution: be careful.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>กล่องเตือนอยู่หลัง step ไม่ได้เป็นตัวพิมพ์ใหญ่ตัวหนา และไม่ได้บอกว่าอันตรายเพราะอะไร ต้องย้ายมาไว้ก่อน step ใส่กรอบ และเขียนเหตุผล</p><p class="good"><b>CAUTION: Release all steam before opening the lid. Hot steam can cause serious burns.</b>
+4. Remove the lid of the pressure cooker.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Instructions · title + tips</span><p class="bad">This is how you should clean the printer head
+• It is a good idea to clean it every month.
+• Printers work better when they are clean.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>Title เป็นประโยค และเนื้อหาเป็น tips ไม่ใช่ steps ต้องเปลี่ยน title เป็น noun phrase แล้วเขียน steps แบบ imperative</p><p class="good">Cleaning the Printer Head
+1. Turn off the printer.
+2. Open the front cover.
+3. Wipe the printer head with a lint-free cloth.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Lab report · Method</span><p class="bad">We put 200 ml of water in each pot. Then I measured the soil every day.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>Method ต้องเป็น past passive ไม่มี I/we และใช้ตัวเลขแม่นยำ</p><p class="good">Two hundred millilitres of water were added to each pot. Soil moisture was measured every 24 hours.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Lab report · Results</span><p class="bad">Unfortunately, the plate was very weak, so it broke at 40 kN.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>Results ต้องมีแต่สิ่งที่สังเกตหรือวัดได้ ห้ามตีความ (weak, so) หรือใส่อารมณ์ (Unfortunately) ส่วนที่เป็นเหตุผลให้ย้ายไปไว้ใน Discussion</p><p class="good">The plate fractured at a load of 40 kN. A crack appeared along the weld line.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Recommendation · Discussion</span><p class="bad">VoltPro 12
+VoltPro 12 costs $48, weighs 1.4 kg, and lasts 500 cycles.
+PowerCell 12
+PowerCell 12 costs $55, weighs 1.7 kg, and lasts 800 cycles.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>Discussion แบ่งตาม<b>สินค้า</b> ซึ่งผิด ต้องแบ่งตาม<b>criterion</b> แต่ละหัวข้อเปิดด้วย requirement และปิดด้วยว่าตัวไหนดีกว่า</p><p class="good">Cost
+The department needs a product that fits a limited budget over its service life. VoltPro 12 costs $48, compared with $55 for PowerCell 12. However, its cost per cycle is higher ($0.096 vs $0.069), so PowerCell 12 offers better long-term value.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Recommendation · Introduction</span><p class="bad">Batteries are very important in modern life. Many companies make batteries, and some are better than others.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>เป็นข้อความกว้างที่ไม่ทำหน้าที่ของ Introduction เลย ไม่มี purpose, ปัญหา, ทางเลือก หรือ criteria</p><p class="good">The Electrical Engineering Department needs rechargeable battery packs for its first-year laboratory. As requested by the Laboratory Coordinator, this report compares VoltPro 12, PowerCell 12, and EnerGo 12 against four criteria: safety, cost, useful life, and ease of use.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Proposal · Background</span><p class="bad">The old chiller is bad and uses too much power. Everyone in the lab complains about it.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>Background ต้องมีสถิติและหลักฐาน ไม่ใช่ความเห็น (bad, everyone complains) ต้องใส่ตัวเลขจาก audit และบอกผลถ้าไม่แก้</p><p class="good">The 12-year-old chiller uses 120,000 kWh of electricity per year, which costs 540,000 THB. The room temperature ranges from 20 to 27 °C, outside the required 22–24 °C. If the problem continues, unstable temperatures may affect equipment and experiments.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Proposal · Benefits</span><p class="bad">The new chiller will save exactly 150,000 baht every year and will never break down.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>อ้างเกินหลักฐาน ตัวเลขเป็นค่าประมาณของ supplier และไม่มีข้อมูลยืนยันว่าจะไม่เสียอีก ให้ใช้ modal และแยกส่วนที่ไม่ guaranteed ออกมา</p><p class="good">The new chiller would save an estimated 135,000 THB per year in electricity. Maintenance costs might also fall by 15,000 THB, although this saving is not guaranteed.</p></div></details></div>
+      <div class="dc"><div class="dq"><span class="tag">Trip report · relevance</span><p class="bad">I visited Kaito Parts in Osaka on 14 August. The hotel had a great rooftop pool. The defect rate is 0.3%, lower than our current supplier's.</p></div><details><summary>ดูเฉลย</summary><div class="da"><p>ตัดเรื่องโรงแรมออก ใส่เฉพาะ essential details ที่องค์กรต้องใช้</p><p class="good">I visited Kaito Parts in Osaka on 14 August to evaluate its quality-control process. Its defect rate is 0.3%, which is lower than our current supplier's.</p></div></details></div>
+    </div>
+  </section>
+
+  <!-- ============ CHECKLIST ============ -->
+  <section class="doc" id="check">
+    <div class="eyebrow">ก่อนส่งกระดาษ</div>
+    <h2>Checklist ตรวจทาน</h2>
+    <div class="grid2">
+      <div><h4>Writing Reminders ของอาจารย์</h4><ul class="check">
+        <li>ใช้ primary และ secondary structure ตามที่โจทย์สั่ง</li>
+        <li>อ่านคำสั่งโจทย์ให้ครบก่อนเขียน</li>
+        <li>ใส่เฉพาะข้อมูลที่ตรงกับหน้าที่ของ section นั้น</li>
+        <li>ใช้ตัวเลขและข้อมูลจากโจทย์ให้ถูกต้อง</li>
+        <li>เขียนประโยคสมบูรณ์ด้วยคำของตัวเอง</li>
+        <li>ตรวจ grammar, punctuation, format</li>
+      </ul></div>
+      <div><h4>จุดที่มักเสียคะแนน</h4><ul class="check">
+        <li>Heading ครบและเรียงตามแบบ (solicited/unsolicited)</li>
+        <li>Rec: Discussion แบ่งตาม criterion ไม่ใช่ตามสินค้า</li>
+        <li>Rec: มี trade-off/limitation ใน Conclusion</li>
+        <li>Proposal: มีตาราง + คำนวณ saving และ payback</li>
+        <li>Proposal: ใช้ would/could ไม่ใช้ will แบบรับประกัน</li>
+        <li>Instructions: hazard อยู่ก่อน step และมีเหตุผล</li>
+        <li>Lab: Method เป็น passive, Results ไม่มี because</li>
+        <li>ไม่มี comma splice (IC, IC)</li>
+      </ul></div>
+    </div>
+    <p class="hint">ที่มา: สไลด์ GTS302 E4-08 ถึง E4-13, ชุดคำสั่ง Week 12 Recommendation Report และ Week 13 Proposal Practice Exercise, ประกาศ Final Examination Reminders ภาคการศึกษา 1/2026 ตัวอย่างเต็มฉบับในหน้านี้เขียนขึ้นใหม่เพื่อใช้ฝึก ไม่ใช่เฉลยของอาจารย์</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  var store={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+  var btn=document.getElementById('recall-btn');
+  function setRecall(on){document.body.classList.toggle('recall',on);btn.setAttribute('aria-pressed',on?'true':'false');btn.textContent=on?'โหมดท่องจำ: เปิด':'โหมดท่องจำ';if(!on)document.querySelectorAll('.fr.show').forEach(function(f){f.classList.remove('show')})}
+  btn.addEventListener('click',function(){setRecall(!document.body.classList.contains('recall'))});
+  function reveal(e){var f=e.target.closest('.fr');if(f&&document.body.classList.contains('recall'))f.classList.toggle('show')}
+  document.addEventListener('click',reveal);
+  document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList&&e.target.classList.contains('fr')){e.preventDefault();reveal(e)}});
+  function count(t){var m=t.trim().match(/\S+/g);return m?m.length:0}
+  document.querySelectorAll('textarea[id^="draft-"]').forEach(function(ta){
+    var key='gts302f:'+ta.id,out=document.querySelector('.wc[data-for="'+ta.id+'"]');
+    var v=store.get(key);if(v)ta.value=v;
+    function upd(){var n=count(ta.value);out.textContent=n+' words'+(ta.id!=='draft-ins'?(n<500?' · ยังไม่ถึง 500':n>750?' · เกิน 750':' · อยู่ในช่วง 500–750'):'')}
+    upd();ta.addEventListener('input',function(){upd();store.set(key,ta.value)});
+  });
+})();
+</script>
