@@ -112,6 +112,9 @@ textarea{width:100%;min-height:14rem;font-family:var(--f-doc);font-size:.95rem;l
 .dc summary{padding:6px 14px 10px;color:var(--accent);font-size:.86rem;font-weight:600;border:0!important}
 .da{padding:0 14px 12px;display:grid;gap:6px;font-size:.9rem}
 .da .good{font-family:var(--f-doc);font-size:.93rem;border-left:3px solid var(--good);padding:4px 10px;background:var(--good-soft);white-space:pre-line}
+.ctx{font-size:.88rem;background:var(--navy-soft);border-radius:4px;padding:8px 12px}
+.dq textarea{min-height:8rem}
+.da ol{font-size:.88rem}
 .flow{counter-reset:s;list-style:none;padding:0;display:grid;gap:6px}
 .flow li{counter-increment:s;display:grid;grid-template-columns:2rem 1fr;gap:8px;align-items:start}
 .flow li::before{content:counter(s);font-family:var(--f-mono);font-weight:600;color:var(--paper);background:var(--navy);border-radius:50%;width:1.6rem;height:1.6rem;display:grid;place-items:center;font-size:.8rem;margin-top:2px}
@@ -130,7 +133,7 @@ textarea{width:100%;min-height:14rem;font-family:var(--f-doc);font-size:.95rem;l
   </header>
 
   <nav class="nav" aria-label="ไปยังหัวข้อ">
-    <a href="#before">ก่อนเขียน</a><a href="#rec">Recommendation</a><a href="#pro">Proposal</a><a href="#ins">Instructions</a><a href="#inv">Investigative</a><a href="#part1">Part 1 drills</a><a href="#check">Checklist</a>
+    <a href="#before">ก่อนเขียน</a><a href="#rec">Recommendation</a><a href="#pro">Proposal</a><a href="#ins">Instructions</a><a href="#inv">Investigative</a><a href="#part1">Part 1 drills</a><a href="#part1full">Part 1 เต็ม section</a><a href="#check">Checklist</a>
     <span class="sp"></span>
     <button class="btn" id="recall-btn" type="button" aria-pressed="false">โหมดท่องจำ</button>
   </nav>
@@ -434,6 +437,182 @@ The department needs a product that fits a limited budget over its service life.
     </div>
   </section>
 
+  <!-- ============ PART 1 FULL SECTIONS ============ -->
+  <section class="doc" id="part1full">
+    <div class="eyebrow">Part 1 · ขนาดใกล้ข้อสอบจริง</div>
+    <h2>Part 1 แบบเต็ม section</h2>
+    <p class="lead">แต่ละข้อให้ section ทั้งก้อนที่มีจุดผิดปนกันหลายแบบ ทั้งโครงสร้าง ข้อมูลที่ไม่เกี่ยว ภาษา และ format ให้อ่านบริบทกับข้อมูลที่ให้มา แล้วเขียน section นั้นใหม่ทั้งหมดในกล่อง จากนั้นค่อยเปิดเฉลยดูว่าหาจุดผิดเจอครบหรือเปล่า</p>
+    <p class="hint">ลองจับเวลาข้อละประมาณ 10–12 นาที ฉบับแก้ไม่จำเป็นต้องตรงกับเฉลยทุกคำ ขอแค่แก้ครบทุกจุดและ section ทำหน้าที่ของตัวเองได้</p>
+    <div class="drill">
+
+      <div class="dc"><div class="dq">
+        <span class="tag">ข้อ 1 · Recommendation · Discussion (1 criterion) · ผิด 6 จุด</span>
+        <p class="ctx"><b>บริบท:</b> Solicited recommendation report เปรียบเทียบ laptop สองรุ่นให้ทีมขาย คือ AeroBook 14 กับ TitanPad 15 criteria เรียงตามนี้: performance, portability, price · ทีมขายเดินทางไปหาลูกค้าสัปดาห์ละ 3 วัน · AeroBook 14 หนัก 1.2 kg แบตอยู่ได้ 11 ชม. · TitanPad 15 หนัก 2.1 kg แบตอยู่ได้ 7 ชม.</p>
+        <p class="bad">Portability
+The AeroBook 14 is a really nice laptop that weighs 1.2 kg. It's battery last 11 hours. It comes in three colours: silver, gold and blue. The TitanPad 15 weighs 2.1 kg, the battery lasts 7 hours. Our sales team travel to clients three days a week. I think everyone will love the AeroBook.</p>
+        <textarea id="draft-p1-1" aria-label="เขียน Portability ใหม่" style="min-height:8rem"></textarea><p class="wc" data-for="draft-p1-1">0 words</p>
+      </div><details><summary>ดูจุดผิดและฉบับแก้</summary><div class="da">
+        <ol>
+          <li><b>Structure:</b> ไม่ได้เปิดด้วยประโยค requirement ส่วนข้อมูลเรื่องทีมขายเดินทางกลับไปอยู่ท้ายย่อหน้า</li>
+          <li><b>Structure:</b> ไม่ได้ปิดด้วยว่าตัวไหนชนะใน criterion นี้ "I think everyone will love" เป็นความเห็น ไม่ใช่ข้อสรุปจากข้อมูล</li>
+          <li><b>Content:</b> เล่าทีละสินค้าแต่ไม่ได้เทียบกันตรง ๆ (compared with / while)</li>
+          <li><b>Relevance:</b> เรื่องสีไม่เกี่ยวกับ portability ให้ตัดทิ้ง</li>
+          <li><b>Language:</b> "really nice" เป็นภาษาพูดและเป็นความเห็น · "It's battery last" ต้องเป็น "Its battery lasts"</li>
+          <li><b>Grammar:</b> "weighs 2.1 kg, the battery lasts" เป็น comma splice · "sales team travel" ควรเป็น "travels"</li>
+        </ol>
+        <p class="good">Portability
+The sales team travels to clients three days a week, so the laptop must be light and must run for a full working day without charging. The AeroBook 14 weighs 1.2 kg, compared with 2.1 kg for the TitanPad 15. Its battery lasts about 11 hours, while the TitanPad's battery lasts about 7 hours, which is shorter than a full working day. Therefore, the AeroBook 14 is the better option for portability.</p>
+      </div></details></div>
+
+      <div class="dc"><div class="dq">
+        <span class="tag">ข้อ 2 · Recommendation · Introduction + Recommendation · ผิด 7 จุด</span>
+        <p class="ctx"><b>บริบท:</b> Operations Manager ขอให้เขียนรายงานนี้ (solicited) · laptop ของทีมขายอายุ 5 ปี ช้าเกินไปสำหรับ design software ตัวใหม่ · ตัวเลือก AeroBook 14 กับ TitanPad 15 · criteria: performance, portability, price · ผลคือ AeroBook รัน software ได้ดีพอ ๆ กัน เบากว่า แบตนานกว่า และราคาถูกกว่า</p>
+        <p class="bad">Introduction
+Computers are very important for every company nowadays. Our office have many laptops. This report is about laptops.
+
+Recommendation
+We recommend the TitanPad 15 or the AeroBook 14. Both are good. The AeroBook 14 was cheaper.</p>
+        <textarea id="draft-p1-2" aria-label="เขียน Introduction และ Recommendation ใหม่" style="min-height:9rem"></textarea><p class="wc" data-for="draft-p1-2">0 words</p>
+      </div><details><summary>ดูจุดผิดและฉบับแก้</summary><div class="da">
+        <ol>
+          <li><b>Structure:</b> Introduction เปิดด้วยประโยคกว้าง ๆ ไม่ได้บอกปัญหาจริง (laptop เก่าและช้า)</li>
+          <li><b>Structure:</b> ไม่ได้บอก purpose และไม่มี "As requested by" ทั้งที่เป็นรายงาน solicited</li>
+          <li><b>Structure:</b> Introduction ไม่ได้ระบุชื่อตัวเลือกและไม่มีรายชื่อ criteria (criteria ต้อง INTRODUCED)</li>
+          <li><b>Structure:</b> Recommendation ไม่ได้เลือกตัวใดตัวหนึ่ง</li>
+          <li><b>Content:</b> ไม่ได้สรุปเหตุผลตาม criteria (criteria ต้อง SUMMARIZED) "Both are good" ไม่ได้บอกอะไรผู้อ่าน</li>
+          <li><b>Grammar:</b> "Our office have" ต้องเป็น "has"</li>
+          <li><b>Tense:</b> "was cheaper" ต้องเป็น "is cheaper" เพราะราคายังเป็นแบบนั้นอยู่</li>
+        </ol>
+        <p class="good">Introduction
+The sales team's laptops are five years old and are too slow to run the new design software. As requested by the Operations Manager, this report compares two replacement models, the AeroBook 14 and the TitanPad 15, and recommends one for purchase. The models are evaluated against three criteria: performance, portability, and price.
+
+Recommendation
+We recommend that the company purchase the AeroBook 14. It runs the design software as well as the TitanPad 15, it is lighter and has a longer battery life, and it costs less per unit.</p>
+      </div></details></div>
+
+      <div class="dc"><div class="dq">
+        <span class="tag">ข้อ 3 · Proposal · Background · ผิด 7 จุด</span>
+        <p class="ctx"><b>บริบท:</b> Internal memo proposal เสนอติดตั้งตู้เติมน้ำดื่ม (refill station) ในมหาวิทยาลัย · ผลสำรวจนักศึกษา 400 คน: 82% ซื้อน้ำขวดอย่างน้อยวันละ 1 ขวด, 74% บอกว่าจะใช้ตู้เติมน้ำ · ขวดพลาสติกที่เก็บได้ในปี 2025 เฉลี่ย 18,000 ขวดต่อเดือน · ค่าทำความสะอาดและเก็บขยะ 12,000 บาทต่อเดือน</p>
+        <p class="bad">Background
+Plastic bottles is a big problem. Students buy a lot of water from the shop every day and throw the bottles everywhere, it looks very dirty. A survey was done. Most students wants refill stations. In the future, I will install six refill stations near the canteen, which will cost 90,000 baht.</p>
+        <textarea id="draft-p1-3" aria-label="เขียน Background ใหม่" style="min-height:9rem"></textarea><p class="wc" data-for="draft-p1-3">0 words</p>
+      </div><details><summary>ดูจุดผิดและฉบับแก้</summary><div class="da">
+        <ol>
+          <li><b>Structure:</b> Background ต้องมีสถิติและหลักฐาน แต่ "a lot of", "a survey was done", "most students" ไม่มีตัวเลขเลย</li>
+          <li><b>Format:</b> ไม่มีตาราง ทั้งที่มีข้อมูลตัวเลขหลายตัวที่ควรสรุปเป็น Table 1 และอ้างถึงในเนื้อความ</li>
+          <li><b>Structure:</b> ไม่ได้บอกว่าถ้าปล่อยไว้จะเกิดอะไร</li>
+          <li><b>Relevance:</b> ทางแก้ (ติดตั้ง 6 ตู้) และราคาเป็นเนื้อหาของ Solution ไม่ใช่ Background · "I will" ฟังดูเหมือนตัดสินใจไปแล้ว ส่วนนี้ต้องใช้ would</li>
+          <li><b>Language:</b> "it looks very dirty", "everywhere" เป็นความเห็นที่วัดไม่ได้</li>
+          <li><b>Grammar:</b> "Plastic bottles is" ต้องเป็น "are" · "Most students wants" ต้องเป็น "want"</li>
+          <li><b>Grammar:</b> "everywhere, it looks" เป็น comma splice</li>
+        </ol>
+        <p class="good">Background
+Students currently buy most of their drinking water in single-use plastic bottles. In a survey of 400 students, 82% said they buy at least one bottle of water a day, and 74% said they would use a refill station if one were available. Table 1 summarizes the survey and waste data.
+
+Table 1. Plastic bottle use and waste on campus
+Students who buy at least one bottle a day    82%
+Students who would use a refill station          74%
+Plastic bottles collected per month (2025)     18,000
+Cleaning and waste collection cost per month   12,000 THB
+
+As Table 1 shows, the campus collects about 18,000 bottles a month, and the university spends 12,000 THB a month on cleaning and waste collection. If the problem continues, these costs will remain high, and plastic waste will continue to increase.</p>
+      </div></details></div>
+
+      <div class="dc"><div class="dq">
+        <span class="tag">ข้อ 4 · Proposal · Benefits · ผิด 6 จุด</span>
+        <p class="ctx"><b>บริบท:</b> ต่อจากข้อ 3 · ตู้ 6 ตู้ราคารวม 90,000 บาท (ติดตั้งแล้ว) · ผลจาก pilot ของ supplier คาดว่าขวดพลาสติกจะลดลงประมาณ 60% · ค่าทำความสะอาดอาจลดจาก 12,000 เหลือประมาณ 7,000 บาทต่อเดือน · น้ำขวดราคาขวดละ 10 บาท · หนึ่งเดือนมีวันเรียน 20 วัน</p>
+        <p class="bad">Benefits
+The refill stations will definitely stop all plastic waste on campus. Students will be happy. Also the stations are made in Germany and has a nice design. We will save 12,000 baht every month guaranteed.</p>
+        <textarea id="draft-p1-4" aria-label="เขียน Benefits ใหม่" style="min-height:9rem"></textarea><p class="wc" data-for="draft-p1-4">0 words</p>
+      </div><details><summary>ดูจุดผิดและฉบับแก้</summary><div class="da">
+        <ol>
+          <li><b>Language:</b> "definitely", "all", "guaranteed" อ้างเกินหลักฐาน เพราะตัวเลขเป็นค่าประมาณจาก pilot ให้ใช้ would / could / is estimated to</li>
+          <li><b>Content (ข้อมูลผิด):</b> 12,000 คือค่าใช้จ่ายทั้งหมดต่อเดือน ไม่ใช่ยอดที่ประหยัดได้ ยอดประหยัดคือ 12,000 − 7,000 = 5,000 บาทต่อเดือน</li>
+          <li><b>Content:</b> ไม่มีการคำนวณ payback (90,000 ÷ 60,000 ต่อปี = 1.5 ปี)</li>
+          <li><b>Content:</b> "Students will be happy" วัดไม่ได้ ควรเปลี่ยนเป็นประโยชน์ที่มีตัวเลขรองรับ เช่น เงินที่นักศึกษาประหยัดได้</li>
+          <li><b>Relevance:</b> ประเทศที่ผลิตและดีไซน์ไม่ใช่ benefit ของการแก้ปัญหานี้</li>
+          <li><b>Grammar/format:</b> "the stations … has" ต้องเป็น "have" · ควรแบ่ง benefit เป็นด้าน ๆ ให้อ่านง่าย</li>
+        </ol>
+        <p class="good">Benefits
+Environmental: Based on the supplier's pilot results, the refill stations are estimated to reduce plastic bottle waste by about 60%, from 18,000 to about 7,200 bottles a month.
+Financial: Cleaning and waste collection costs could fall from 12,000 to about 7,000 THB a month, a saving of about 5,000 THB a month or 60,000 THB a year. The simple payback period would therefore be about 1.5 years (90,000 ÷ 60,000).
+Students: A student who refills a bottle instead of buying one 10-baht bottle each school day could save about 200 THB a month (10 × 20).
+These figures are estimates, not guaranteed results.</p>
+      </div></details></div>
+
+      <div class="dc"><div class="dq">
+        <span class="tag">ข้อ 5 · Instructions · ทั้งชุด · ผิด 8 จุด</span>
+        <p class="ctx"><b>บริบท:</b> เขียนคู่มือให้พนักงานเปลี่ยนแบตเตอรี่ laptop ใช้ไขควงแฉก (Phillips screwdriver) และแบตใหม่ แบตเก่าอาจร้อน และต้องถอดปลั๊กก่อนเพื่อป้องกันไฟดูด</p>
+        <p class="bad">Laptop battery replacement is easy
+You should first turn the laptop off and unplug it and then turn it over.
+2. The screws on the back cover should be removed with a screwdriver.
+3. Lift the cover.
+Warning: battery can be hot.
+4. Disconnect the battery cable and take out the old battery, then put the new one in.
+5. It is a good idea to buy batteries from the official store.
+6. Replace the cover. Turn the laptop on.</p>
+        <textarea id="draft-p1-5" aria-label="เขียน instructions ใหม่" style="min-height:12rem"></textarea><p class="wc" data-for="draft-p1-5">0 words</p>
+      </div><details><summary>ดูจุดผิดและฉบับแก้</summary><div class="da">
+        <ol>
+          <li><b>Title:</b> เป็นประโยคและเป็นความเห็น ต้องเป็น "Replacing a Laptop Battery" หรือ "How to Replace a Laptop Battery"</li>
+          <li><b>Structure:</b> ไม่มี introduction และ list อุปกรณ์ (screwdriver, new battery)</li>
+          <li><b>Step 1:</b> ไม่มีเลขข้อ ใช้ "You should" แทน imperative และยัด 3 action ไว้ในข้อเดียว</li>
+          <li><b>Step 2:</b> เป็น passive ("should be removed") ต้องเป็นคำสั่ง "Remove …"</li>
+          <li><b>Hazard:</b> ไม่ได้เป็นตัวพิมพ์ใหญ่ ตัวหนา ไม่มีกรอบ และไม่บอกว่าอันตรายอย่างไร</li>
+          <li><b>Hazard ที่หายไป:</b> เรื่องถอดปลั๊กกันไฟดูดต้องมีกล่องเตือนก่อนเริ่มทำ</li>
+          <li><b>Step 4 และ 6:</b> overloaded มีหลาย action ในข้อเดียว</li>
+          <li><b>Step 5:</b> เป็น tip ไม่ใช่ step ให้ตัดออกหรือย้ายไปไว้ใน introduction</li>
+        </ol>
+        <p class="good">Replacing a Laptop Battery
+
+The following nine steps explain how to replace the battery in a company laptop. The procedure takes about ten minutes.
+
+You will need: a Phillips screwdriver; a new battery from the official store
+
+WARNING: Unplug the laptop before you open the cover. Working on a laptop connected to power can cause electric shock.
+1. Turn off the laptop.
+2. Unplug the power cable.
+3. Turn the laptop over.
+4. Remove the four screws on the back cover with the Phillips screwdriver.
+5. Lift off the back cover.
+CAUTION: Do not touch the old battery with bare hands if it feels warm. A hot battery can cause burns.
+6. Disconnect the battery cable.
+7. Remove the old battery.
+8. Insert the new battery and connect the battery cable.
+9. Replace the back cover and the four screws.</p>
+        <p class="hint">step 8 รวมสอง action ได้เพราะต่อกันเป็นการกระทำเดียว ถ้าไม่แน่ใจให้แยกเป็นสองข้อ ซึ่งปลอดภัยกว่า</p>
+      </div></details></div>
+
+      <div class="dc"><div class="dq">
+        <span class="tag">ข้อ 6 · Lab report · Method + Results · ผิด 8 จุด</span>
+        <p class="ctx"><b>บริบท:</b> ทดลองผลของอุณหภูมิต่อเวลาใช้งานแบต · แบต 12 V รุ่นเดียวกัน 3 ก้อน ชาร์จเต็ม 4 ชม. · เก็บที่ 5 °C, 25 °C, 45 °C ก้อนละ 2 ชม. · ต่อกับหลอดไฟ 10 W จนไฟดับ · ผล: 5 °C = 4.1 ชม., 25 °C = 4.6 ชม., 45 °C = 3.8 ชม.</p>
+        <p class="bad">Method
+First, we charge three batteries fully. Then put one battery in a fridge, one in the room and one in an oven at 45 degrees. After that I connected each battery to a 10 W lamp and see how long it last.
+
+Results
+Sadly the hot battery was the worst because heat damages batteries. The cold battery lasted 4.1 hours, the room battery lasted 4.6 hours. The hot one lasted around 4 hours or so.</p>
+        <textarea id="draft-p1-6" aria-label="เขียน Method และ Results ใหม่" style="min-height:11rem"></textarea><p class="wc" data-for="draft-p1-6">0 words</p>
+      </div><details><summary>ดูจุดผิดและฉบับแก้</summary><div class="da">
+        <ol>
+          <li><b>Voice:</b> Method ใช้ we / I ต้องเป็น passive ทั้งหมด</li>
+          <li><b>Tense:</b> charge, see ปนกับ connected ต้องเป็น past ทั้งหมด</li>
+          <li><b>Mood:</b> "Then put …" เป็นประโยคคำสั่ง ห้ามใช้ใน Method</li>
+          <li><b>Precision:</b> "a fridge", "the room", "45 degrees" ไม่บอกอุณหภูมิหรือหน่วยให้ชัด และไม่บอกว่าชาร์จกี่ชั่วโมง เก็บไว้นานเท่าไร คนอื่นเลยทำซ้ำไม่ได้</li>
+          <li><b>Results · objectivity:</b> "Sadly", "the worst" ใส่อารมณ์และตัดสินแทนข้อมูล</li>
+          <li><b>Results · structure:</b> "because heat damages batteries" เป็นการอธิบายเหตุผล ต้องย้ายไป Discussion</li>
+          <li><b>Precision:</b> "around 4 hours or so" ต้องเป็นค่าที่วัดได้จริง คือ 3.8 hours · ควรอ้าง Table 1</li>
+          <li><b>Grammar:</b> "lasted 4.1 hours, the room battery lasted" เป็น comma splice · "how long it last" ต้องเป็น "lasted"</li>
+        </ol>
+        <p class="good">Method
+Three identical 12 V battery packs were fully charged for four hours. One pack was then stored at 5 °C, one at 25 °C, and one at 45 °C for two hours. Each pack was connected to a 10 W lamp, and the time until the lamp switched off was recorded.
+
+Results
+Table 1 shows the runtime of each battery pack. The pack stored at 25 °C ran for 4.6 hours, the longest of the three. The pack stored at 5 °C ran for 4.1 hours, and the pack stored at 45 °C ran for 3.8 hours.</p>
+      </div></details></div>
+
+    </div>
+  </section>
+
   <!-- ============ CHECKLIST ============ -->
   <section class="doc" id="check">
     <div class="eyebrow">ก่อนส่งกระดาษ</div>
@@ -475,7 +654,7 @@ The department needs a product that fits a limited budget over its service life.
   document.querySelectorAll('textarea[id^="draft-"]').forEach(function(ta){
     var key='gts302f:'+ta.id,out=document.querySelector('.wc[data-for="'+ta.id+'"]');
     var v=store.get(key);if(v)ta.value=v;
-    function upd(){var n=count(ta.value);out.textContent=n+' words'+(ta.id!=='draft-ins'?(n<500?' · ยังไม่ถึง 500':n>750?' · เกิน 750':' · อยู่ในช่วง 500–750'):'')}
+    function upd(){var n=count(ta.value);out.textContent=n+' words'+((ta.id==='draft-rec'||ta.id==='draft-pro')?(n<500?' · ยังไม่ถึง 500':n>750?' · เกิน 750':' · อยู่ในช่วง 500–750'):'')}
     upd();ta.addEventListener('input',function(){upd();store.set(key,ta.value)});
   });
 })();
