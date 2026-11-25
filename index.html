@@ -198,6 +198,39 @@ textarea{width:100%;min-height:14rem;font-family:var(--f-doc);font-size:.95rem;l
     </div>
     <p class="trap"><b class="t">UNSOLICITED</b>เปลี่ยน Introduction เป็น "Although no one has requested this report, we have noticed that <span class="mono">[problem]</span>." แล้วย้าย Recommendation ไปไว้ท้ายสุด หลัง Discussion ที่ต้องละเอียดกว่าแบบ solicited</p>
 
+    <h3 id="rec-unsol">โครงสร้าง Unsolicited</h3>
+    <p>ผู้อ่านไม่ได้ขอรายงานนี้และยังไม่เห็นว่ามีปัญหา (unreceptive) จึงต้องทำให้เห็นปัญหาก่อน แล้วให้หลักฐานจนผู้อ่านเห็นด้วยเอง คำแนะนำจึงมาท้ายสุด ลำดับนี้มาจาก Table 13.1 ในสไลด์ E4-10</p>
+    <div class="strip"><span class="k1">Introduction</span><i>→</i><span class="k3">Scope</span><i>→</i><span class="k4">Discussion with more details</span><i>→</i><span class="k2">Recommendation</span></div>
+    <div class="tbl"><table>
+      <tr><th>Section</th><th>Solicited</th><th>Unsolicited</th></tr>
+      <tr><td>Introduction</td><td>"As requested by …" ปัญหาเล่าสั้น ๆ เพราะผู้อ่านรู้อยู่แล้ว</td><td>"Although no one has requested this report …" อธิบายปัญหาให้ละเอียดพร้อมตัวเลข ให้ผู้อ่านเห็นว่าสำคัญ (Step 1 ในสไลด์) แล้วจึงบอกทางเลือกและ criteria</td></tr>
+      <tr><td>Recommendation</td><td>อยู่ที่สอง ต่อจาก Introduction</td><td>อยู่ท้ายสุด ทำหน้าที่ปิดรายงานด้วย: คำแนะนำ เหตุผลย่อตาม criteria จุดด้อย และขั้นแรกที่อนุมัติได้ง่าย</td></tr>
+      <tr><td>Scope</td><td>ranked + เหตุผล</td><td>เหมือนกัน แต่ผูกเหตุผลของแต่ละ criterion กับเป้าหมายของผู้อ่านเอง เช่น นโยบายหรืองบที่ผู้อ่านตั้งไว้</td></tr>
+      <tr><td>Discussion</td><td>with limited details</td><td>with more details: ตัวเลขทุกตัวบอกแหล่งที่มา คำนวณให้เห็น และตอบข้อโต้แย้งที่ผู้อ่านน่าจะคิด (เช่น "แพงกว่า") ก่อนผู้อ่านยกเอง</td></tr>
+      <tr><td>Conclusion</td><td>ใส่ถ้าโจทย์สั่ง (Week 12)</td><td>ไม่มีในแบบของสไลด์ เพราะ Recommendation ท้ายเรื่องปิดรายงานแทน ถ้าโจทย์สั่ง heading มาให้ ใช้ตามโจทย์</td></tr>
+    </table></div>
+
+    <h3>Frames สำหรับ Unsolicited</h3>
+    <div class="frames">
+      <div class="fsec k1"><h4>Introduction</h4><p class="job">ไม่มีใครขอ → ปัญหา + หลักฐาน + ผลถ้าไม่แก้ → ทางเลือก + criteria</p>
+        <p class="fr" tabindex="0">Although no one has requested this report, <span class="b">[we / the unit]</span> has noticed that <span class="b">[problem]</span>.<span class="why">ประโยคเปิดที่บอกว่าเป็น unsolicited</span></p>
+        <p class="fr" tabindex="0">Last <span class="b">[semester/year]</span>, <span class="b">[number] [failures/complaints]</span> caused <span class="b">[effect]</span>, and <span class="b">[cost]</span>.<span class="why">ตัวเลขทำให้ปัญหาดูสำคัญ</span></p>
+        <p class="fr" tabindex="0">If nothing changes, <span class="b">[consequence for the reader]</span>.</p>
+        <p class="fr" tabindex="0">This report compares <span class="b">[A]</span> and <span class="b">[B]</span> as possible <span class="b">[replacements/solutions]</span> against <span class="b">[n]</span> criteria: <span class="b">[c1]</span>, <span class="b">[c2]</span>, and <span class="b">[c3]</span>.<span class="why">criteria INTRODUCED</span></p></div>
+      <div class="fsec k3"><h4>Scope</h4><p class="job">ranked + เหตุผลที่ผูกกับเป้าหมายของผู้อ่าน</p>
+        <p class="fr" tabindex="0">The criteria are ranked by their effect on <span class="b">[the reader's priority]</span>.</p>
+        <p class="fr" tabindex="0"><span class="b">[C1]</span> is ranked first because <span class="b">[reason]</span>.</p>
+        <p class="fr" tabindex="0">Product figures come from <span class="b">[source]</span>, and <span class="b">[usage/cost]</span> figures come from <span class="b">[our own records]</span>.<span class="why">บอกแหล่งข้อมูลตั้งแต่ Scope</span></p></div>
+      <div class="fsec k4"><h4>Discussion · more details</h4><p class="job">requirement → หลักฐานพร้อมแหล่งที่มา → ตอบข้อโต้แย้ง → ผู้ชนะ</p>
+        <p class="fr" tabindex="0">According to <span class="b">[source]</span>, <span class="b">[fact with number]</span>.<span class="why">แหล่งที่มาทุกตัวเลข</span></p>
+        <p class="fr" tabindex="0">One concern may be <span class="b">[objection]</span>. However, <span class="b">[answer with evidence]</span>.<span class="why">ตอบข้อโต้แย้งก่อนผู้อ่านจะยก</span></p>
+        <p class="fr" tabindex="0"><span class="b">[A]</span> is cheaper, but the gap is small.<span class="why">ยอมรับเมื่อตัวที่จะแนะนำแพ้ใน criterion นั้น</span></p></div>
+      <div class="fsec k2"><h4>Recommendation (ท้ายสุด)</h4><p class="job">คำแนะนำ + เหตุผลย่อ + จุดด้อย + ขั้นแรก</p>
+        <p class="fr" tabindex="0">Based on this comparison, we recommend that <span class="b">[the reader]</span> <span class="b">[replace/adopt …]</span> with <span class="b">[item]</span>.<span class="why">verb ช่องหนึ่งไม่เติม s</span></p>
+        <p class="fr" tabindex="0">Its main drawback is <span class="b">[drawback]</span>, but <span class="b">[why it matters less]</span>.</p>
+        <p class="fr" tabindex="0">As a first step, we suggest <span class="b">[small, low-risk action]</span> and comparing <span class="b">[results]</span> before <span class="b">[full change]</span>.<span class="why">ผู้อ่านที่ไม่ได้ขอ อนุมัติขั้นเล็กได้ง่ายกว่าทั้งโครงการ</span></p></div>
+    </div>
+
     <div class="calc">
       <h4>ตัวเลขที่ควรคิดเองจากข้อมูล (โจทย์ชอบให้ตีความ)</h4>
       <p class="eq">cost per cycle = price ÷ expected cycles → $48 ÷ 500 = $0.096 · $55 ÷ 800 ≈ $0.069 · $62 ÷ 1,000 = $0.062</p>
@@ -218,6 +251,25 @@ textarea{width:100%;min-height:14rem;font-family:var(--f-doc);font-size:.95rem;l
         <div class="blk k6"><div class="tx"><h5>Conclusion</h5>EnerGo 12 is the best choice for the first-year laboratory because it leads on listed safety features, cost per cycle, useful life, and charging time. Its main trade-off is the highest unit price, which raises the initial cost of a class set. Because all figures come from suppliers, the department should confirm the final price for its order size before purchasing.</div><div class="lb"><b>Conclusion</b>ยืนยัน → trade-off หลัก → next step</div></div>
       </div>
     </details>
+
+    <details class="model">
+      <summary>ตัวอย่างเต็มฉบับ · Unsolicited · Classroom Projectors (≈610 คำ)</summary>
+      <div class="sheet">
+        <p class="ttl">Recommendation Report: Replacing the Classroom Projectors in Building 3</p>
+        <div class="blk k1"><div class="tx"><h5>Introduction</h5>Although no one has requested this report, the IT Support Unit has noticed that the projectors in Building 3 are now disrupting teaching. The twelve classrooms still use lamp projectors installed in 2019. Last semester, these projectors failed 19 times during class, and 31 sessions were delayed or moved to another room. The unit also spent 96,000 THB on replacement lamps. If nothing changes, failures are likely to increase as the units age. This report compares two possible replacements, the LumaView LX5 lamp projector and the BrightBeam L300 laser projector, against three criteria: reliability, five-year cost, and image brightness.</div><div class="lb"><b>Introduction</b>บอกว่าไม่มีใครขอ → ปัญหาพร้อมตัวเลข → ผลถ้าไม่แก้ → ทางเลือก + criteria · ยังไม่บอกว่าแนะนำตัวไหน</div></div>
+        <div class="blk k3"><div class="tx"><h5>Scope</h5>The criteria are ranked by their effect on teaching, which is the Faculty's first priority. Reliability is ranked first because a failed projector stops a class immediately. It covers the expected life of the light source and the parts that need regular replacement. Five-year cost is second because the Faculty's equipment budget is fixed; it includes the purchase price, replacement lamps, and electricity, based on about 1,600 hours of use per year. Image brightness is third because students in the back rows must be able to read slides in a lit room. Product figures come from supplier specification sheets, and usage figures come from the unit's own repair log.</div><div class="lb"><b>Scope</b>ranked + เหตุผลผูกกับเป้าหมายของ Faculty + นิยาม criterion + แหล่งข้อมูล</div></div>
+        <div class="blk k4"><div class="tx"><h5>Discussion</h5><h5>Reliability</h5>Each classroom needs a projector that runs through a full semester without failing. According to the repair log, 17 of last semester's 19 failures were lamp failures. The LX5 lamp is rated for 3,500 hours, so each unit would need a new lamp about every two years. The L300 uses a laser light source rated for 20,000 hours, which is longer than the five-year period in this report, and it has no lamp or air filter to replace. Supplier ratings are not guarantees, but the L300 removes the part responsible for most current failures. The L300 is therefore the stronger option for reliability.</div><div class="lb"><b>Discussion · C1</b>requirement → หลักฐานจาก repair log → เทียบ → hedge → ผู้ชนะ</div></div>
+        <div class="blk k4"><div class="tx"><h5>Five-Year Cost</h5>The Faculty needs a solution that it can afford over the life of the equipment, not only at purchase. The LX5 costs 28,000 THB per unit, compared with 42,000 THB for the L300. Over five years, however, the LX5 needs two replacement lamps at 4,000 THB each and uses 280 W, while the L300 needs no lamps and uses 200 W. At 4.50 THB per kWh, the five-year cost per classroom is about 46,100 THB for the LX5 and 49,200 THB for the L300. One concern may be the higher purchase price, which raises the initial cost for twelve rooms from 336,000 THB to 504,000 THB. However, the difference over five years is only about 3,100 THB per room, and this estimate does not include technician time or lost class time. The LX5 is cheaper, but the gap is small.</div><div class="lb"><b>Discussion · C2</b>คำนวณให้เห็น → ตอบข้อโต้แย้ง "แพงกว่า" ก่อนผู้อ่านยก → ยอมรับว่าแพ้ใน criterion นี้</div></div>
+        <div class="blk k4"><div class="tx"><h5>Image Brightness</h5>Students must be able to read text from the back of a classroom with the lights on. Both models are rated at 4,000 lumens when new. However, a lamp loses brightness as it ages, and the LX5 sheet states that output falls to about 50 percent by the end of the lamp's life. The L300 is rated to keep about 80 percent of its brightness after 20,000 hours. The L300 will therefore stay brighter for longer.</div><div class="lb"><b>Discussion · C3</b>ค่าเท่ากันตอนใหม่ จึงต้องดูต่อว่าเปลี่ยนไปอย่างไรตามอายุ</div></div>
+        <div class="blk k2"><div class="tx"><h5>Recommendation</h5>Based on this comparison, we recommend that the Faculty replace the Building 3 projectors with the BrightBeam L300. It is the more reliable option because it removes the lamp, which caused most failures last semester, and it keeps its brightness longer. Its main drawback is the higher purchase price, but over five years it costs only about 3,100 THB more per room than the LX5. As a first step, we suggest installing the L300 in the two most-used classrooms this semester for 84,000 THB and comparing their repair records with the other rooms before replacing the rest.</div><div class="lb"><b>Recommendation · ท้ายสุด</b>คำแนะนำ → เหตุผลย่อตาม criteria → จุดด้อย → ขั้นแรกที่อนุมัติง่าย</div></div>
+      </div>
+    </details>
+    <div class="calc">
+      <h4>ตัวเลขในตัวอย่าง Unsolicited</h4>
+      <p class="eq">ใช้งาน 1,600 ชม./ปี × 5 ปี = 8,000 ชม. · LX5 เปลี่ยนหลอดที่ 3,500 และ 7,000 ชม. = 2 หลอด</p>
+      <p class="eq">LX5 = 28,000 + 2 × 4,000 + (8,000 × 0.28 kW × 4.50) = 28,000 + 8,000 + 10,080 = 46,080 THB</p>
+      <p class="eq">L300 = 42,000 + (8,000 × 0.20 kW × 4.50) = 42,000 + 7,200 = 49,200 THB · ต่างกัน 3,120 THB ต่อห้อง</p>
+    </div>
     <details class="mine" data-key="rec"><summary>เขียนเองก่อนดูตัวอย่าง</summary><div class="inner"><p class="hint">โจทย์: เลือก battery pack ให้แล็บปี 1 จาก VoltPro 12 / PowerCell 12 / EnerGo 12 ด้วย 4 criteria (Safety, Cost, Useful life, Ease of use) ยาว 500–750 คำ</p><textarea id="draft-rec" aria-label="ร่าง recommendation report"></textarea><p class="wc" data-for="draft-rec">0 words</p></div></details>
   </section>
 
