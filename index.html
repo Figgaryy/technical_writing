@@ -317,6 +317,42 @@ textarea{width:100%;min-height:14rem;font-family:var(--f-doc);font-size:.95rem;l
         <p class="fr" tabindex="0">I hope you will approve <span class="b">[action]</span>, as the benefits outweigh the cost.</p></div>
     </div>
 
+    <h3 id="pro-table">ตารางใน Background: มาจากไหน และตัดสินใจอย่างไรว่าต้องเป็นแบบนี้</h3>
+    <p><b>ทำไมต้องมีตาราง</b> สไลด์ E4-12 (Short Informal Proposals) เขียนใต้ Background heading ว่า "Main statistics and evidence here" ส่วนสไลด์ Peer Correction ให้ตรวจ "Persuasiveness (especially use of facts / figures / statistics)" กับ "position of tables, pie charts" ตัวอย่าง Night Custodian ในสไลด์ก็วางตารางไว้ใน Background ตารางจึงอยู่ใน Background เสมอ ไม่อยู่ใน Problem หรือ Benefits เพราะ Background ทำหน้าที่พิสูจน์ว่าปัญหามีจริง</p>
+    <p><b>ข้อมูลมาจากไหน</b> ใช้เฉพาะตัวเลขที่โจทย์หรือเอกสารประกอบให้มา ห้ามแต่งเพิ่ม ในตัวอย่าง chiller ตัวเลขมาจาก internal energy audit ในโจทย์ Week 13 ถ้าคิดตัวเลขเองจากข้อมูลโจทย์ได้ ก็ใส่ได้ เช่น ค่าไฟต่อปี 120,000 × 4.50 = 540,000 THB</p>
+
+    <h4>เลือกแถว: ทุกแถวต้องมีงานทำ</h4>
+    <p>ถามทีละตัวเลขว่า ใช้พิสูจน์ปัญหาข้อไหน หรือจะเอาไปคำนวณใน Benefits หรือไม่ ถ้าไม่ใช่ทั้งสองอย่าง ไม่ต้องใส่</p>
+    <div class="tbl"><table>
+      <tr><th>แถวใน Table 1</th><th>ใส่เพราะ</th><th>ถูกใช้ที่ไหนต่อ</th></tr>
+      <tr><td>System age 12 years</td><td>ชี้ว่าเครื่องเก่า เป็นสาเหตุของปัญหา</td><td>Problem ("12-year-old chiller")</td></tr>
+      <tr><td>Annual electricity use 120,000 kWh</td><td>ชี้ว่าใช้ไฟมาก (ปัญหาข้อ 1)</td><td>Benefits: 120,000 → 90,000 = ลด 25%</td></tr>
+      <tr><td>Electricity tariff 4.50 THB/kWh</td><td>ใช้แปลง kWh เป็นเงิน</td><td>Benefits: 30,000 × 4.50 = 135,000</td></tr>
+      <tr><td>Annual electricity cost 540,000 THB</td><td>เงินมีผลกับผู้อ่านมากกว่า kWh</td><td>ทำให้ผู้อ่านเห็นขนาดของปัญหา</td></tr>
+      <tr><td>Annual maintenance cost 45,000 THB</td><td>ค่าใช้จ่ายอีกก้อนของเครื่องเก่า</td><td>Benefits: อาจลดเหลือ 30,000</td></tr>
+      <tr><td>Observed 20–27 °C คู่กับ Required 22–24 °C</td><td>วางคู่กันให้เห็นว่าออกนอกช่วง (ปัญหาข้อ 2)</td><td>"As Table 1 shows …" · Benefits ด้าน operational</td></tr>
+      <tr><td>Unplanned downtime 30 hours/year</td><td>ปัญหาข้อ 3 ด้านการใช้งาน</td><td>ผลถ้าไม่แก้ · Benefits ด้าน operational</td></tr>
+    </table></div>
+    <p>ตัวเลขของระบบใหม่ เช่น 90,000 kWh, 450,000 THB และ payback ไม่อยู่ในตารางนี้ เพราะ Background บรรยายสภาพปัจจุบันเท่านั้น ตัวเลขของทางแก้ไปอยู่ใน Solution และ Benefits ถ้าใส่ปนกันในตารางเดียว จะเหมือนเขียน Benefits ไว้ก่อน Solution</p>
+
+    <h4>เลือกรูปตาราง: ดูว่าข้อมูลบอกอะไร</h4>
+    <div class="tbl"><table>
+      <tr><th>ข้อมูลที่โจทย์ให้</th><th>รูปที่ใช้</th><th>ตัวอย่าง</th></tr>
+      <tr><td>หลายค่าของระบบเดียว ณ ตอนนี้</td><td>2 คอลัมน์: รายการ | ค่า+หน่วย</td><td>Table 1 ของ chiller (audit ครั้งเดียว)</td></tr>
+      <tr><td>ค่าเดียวกันวัดหลายช่วงเวลา และปัญหาคือ "เพิ่มขึ้นเรื่อย ๆ"</td><td>แถว = ปี, คอลัมน์ = เดือน + Total (หรือกราฟเส้น)</td><td>Night Custodian ในสไลด์: special setups 98 → 108 → 134</td></tr>
+      <tr><td>ค่าที่วัดได้เทียบกับมาตรฐานหรือเป้าหมาย</td><td>3 คอลัมน์: รายการ | Current | Required</td><td>อุณหภูมิ 20–27 °C เทียบ 22–24 °C</td></tr>
+      <tr><td>สัดส่วนของทั้งหมด</td><td>pie chart</td><td>ค่าไฟแยกตามอุปกรณ์</td></tr>
+    </table></div>
+    <p>ตัวอย่าง chiller ใช้ 2 คอลัมน์ เพราะ audit วัดครั้งเดียวและไม่มีข้อมูลรายปี ถ้าโจทย์ให้ค่าไฟย้อนหลัง 3 ปีมา ต้องเปลี่ยนเป็นแบบแถวตามปี เพราะเรื่องที่ต้องพิสูจน์จะกลายเป็น "ค่าไฟเพิ่มขึ้นทุกปี"</p>
+
+    <h4>รูปแบบที่ต้องมีทุกครั้ง</h4>
+    <ul>
+      <li>ชื่ออยู่เหนือตาราง ขึ้นต้นด้วยเลข เช่น <span class="mono">Table 1. Audit results for the current cooling system</span></li>
+      <li>หน่วยอยู่ทุกแถว (kWh, THB/kWh, °C, hours/year)</li>
+      <li>อ้างถึงตารางในเนื้อความก่อนวาง: "Table 1 summarizes …"</li>
+      <li>ตีความหลังตาราง: "As Table 1 shows, …" แล้วตามด้วยผลถ้าไม่แก้ ห้ามวางตารางไว้เฉย ๆ ตัวอย่างในสไลด์ก็เขียน "as the following data shows" ก่อนตาราง และเขียนความเห็นต่อหลังตาราง</li>
+    </ul>
+
     <div class="calc">
       <h4>สูตรคำนวณที่ Week 13 สั่ง</h4>
       <p class="eq">annual saving = (old kWh − new kWh) × tariff = (120,000 − 90,000) × 4.50 = 135,000 THB</p>
